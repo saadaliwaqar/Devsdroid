@@ -28,7 +28,7 @@ export function Navbar() {
             <div className="container flex h-16 items-center justify-between px-4 md:px-6">
                 <Link href="/" className="mr-6 flex items-center space-x-2">
                     <Image
-                        src="/logo-v2.png"
+                        src="/logo-header.png"
                         alt="ABCG Research Logo"
                         width={200}
                         height={64}
