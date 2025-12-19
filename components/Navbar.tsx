@@ -67,7 +67,7 @@ export function Navbar() {
                                         </>
                                     ) : (
                                         <NavigationMenuLink asChild>
-                                            <Link href={link.href} className={navigationMenuTriggerStyle()}>
+                                            <Link href={link.href} className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
                                                 {link.title}
                                             </Link>
                                         </NavigationMenuLink>

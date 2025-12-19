@@ -39,16 +39,26 @@ export function Footer() {
 
                 <div className="space-y-4 lg:col-span-1">
                     <h3 className="text-sm font-semibold uppercase tracking-wider">Partners</h3>
-                    <div className="flex flex-col gap-4">
-                        <Link href="/" className="flex items-center space-x-2">
+                    <div className="flex flex-wrap gap-6 items-center">
+                        <div className="relative h-8 w-24 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
                             <Image
-                                src="/logo-v2.png"
-                                alt="ABCG Research Logo"
-                                width={200}
-                                height={64}
-                                className="h-16 w-auto object-contain dark:brightness-0 dark:invert"
+                                src="/odoo-logo.png"
+                                alt="Odoo"
+                                fill
+                                className="object-contain object-left"
                             />
-                        </Link>
+                        </div>
+                        <div className="relative h-10 w-10 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                            <Image
+                                src="/independent-research-forum-logo.png"
+                                alt="Independent Research Forum"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <div className="font-bold text-lg text-slate-500/70 hover:text-slate-500 transition-colors cursor-default">
+                            Optiquant
+                        </div>
                     </div>
                 </div>
             </div>
