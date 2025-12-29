@@ -2,135 +2,90 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Terminal, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { NAV_LINKS, NAVBAR_CTA } from "@/lib/constants";
-import { ModeToggle } from "@/components/mode-toggle";
-import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
-export function Navbar() {
+export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-                <Link href="/" className="mr-6 flex items-center space-x-2">
-                    <Image
-                        src="/logo-header.png"
-                        alt="ABCG Research Logo"
-                        width={200}
-                        height={64}
-                        className="h-16 w-auto object-contain"
-                        priority
-                    />
+        <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4">
+            <div className="rounded-xl border border-white/10 bg-card/50 backdrop-blur-xl max-w-7xl mx-auto flex items-center justify-between p-4">
+                {/* LOGO */}
+                <Link href="/" className="flex items-center gap-2 group">
+                    <div className="relative w-80 h-20 transition-transform group-hover:scale-105">
+                        <Image
+                            src="/logo-transparent.png"
+                            alt="DevsDroid Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
                 </Link>
-                <div className="hidden md:flex md:flex-1">
-                    <NavigationMenu>
-                        <NavigationMenuList>
-                            {NAV_LINKS.map((link) => (
-                                <NavigationMenuItem key={link.title}>
-                                    {link.items ? (
-                                        <>
-                                            <NavigationMenuTrigger className="bg-transparent">
-                                                {link.title}
-                                            </NavigationMenuTrigger>
-                                            <NavigationMenuContent>
-                                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                                                    {link.items.map((item) => (
-                                                        <li key={item.title}>
-                                                            <NavigationMenuLink asChild>
-                                                                <Link
-                                                                    href={item.href}
-                                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                                                >
-                                                                    <div className="text-sm font-medium leading-none">
-                                                                        {item.title}
-                                                                    </div>
-                                                                </Link>
-                                                            </NavigationMenuLink>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </NavigationMenuContent>
-                                        </>
-                                    ) : (
-                                        <NavigationMenuLink asChild>
-                                            <Link href={link.href} className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-                                                {link.title}
-                                            </Link>
-                                        </NavigationMenuLink>
-                                    )}
-                                </NavigationMenuItem>
-                            ))}
-                        </NavigationMenuList>
-                    </NavigationMenu>
-                </div>
-                <div className="hidden md:flex items-center gap-4">
-                    <ModeToggle />
-                    <Link href="/contact">
-                        <Button>Contact Us</Button>
+
+                {/* DESKTOP NAV */}
+                <nav className="hidden md:flex items-center gap-8">
+                    {["Capabilities", "Methodology", "Vision"].map((item) => (
+                        <Link
+                            key={item}
+                            href={`#${item.toLowerCase()}`}
+                            className="text-sm font-medium text-slate-400 hover:text-white transition-colors font-mono"
+                        >
+                            {item}
+                        </Link>
+                    ))}
+                </nav>
+
+                {/* CTA */}
+                <div className="hidden md:block">
+                    <Link
+                        href="#contact"
+                        className="px-6 py-2.5 bg-primary text-primary-foreground font-mono font-bold text-sm rounded hover:bg-white hover:text-secondary transition-all flex items-center gap-2 shadow-[0_0_15px_-3px_var(--color-primary)] hover:shadow-[0_0_20px_-3px_rgba(255,255,255,0.5)]"
+                    >
+                        Start_Project
                     </Link>
                 </div>
 
-                {/* Mobile Menu */}
-                <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                    <SheetTrigger asChild className="md:hidden">
-                        <Button variant="ghost" size="icon">
-                            <Menu className="h-6 w-6" />
-                            <span className="sr-only">Toggle menu</span>
-                        </Button>
-                    </SheetTrigger>
-                    <SheetContent side="right">
-                        <nav className="flex flex-col gap-4 mt-8">
-                            {NAV_LINKS.map((link) => (
-                                <div key={link.title} className="flex flex-col gap-2">
-                                    {link.items ? (
-                                        <>
-                                            <h4 className="font-semibold text-lg">{link.title}</h4>
-                                            {link.items.map((item) => (
-                                                <Link
-                                                    key={item.title}
-                                                    href={item.href}
-                                                    className="text-muted-foreground hover:text-primary transition-colors pl-4"
-                                                    onClick={() => setIsOpen(false)}
-                                                >
-                                                    {item.title}
-                                                </Link>
-                                            ))}
-                                        </>
-                                    ) : (
-                                        <Link
-                                            href={link.href}
-                                            className="font-semibold text-lg hover:text-primary transition-colors"
-                                            onClick={() => setIsOpen(false)}
-                                        >
-                                            {link.title}
-                                        </Link>
-                                    )}
-                                </div>
-                            ))}
-                            <Link href="/contact">
-                                <Button className="mt-4 w-full">Contact Us</Button>
-                            </Link>
-                            <div className="mt-4 flex justify-center"> {/* Added ModeToggle to mobile menu */}
-                                <ModeToggle />
-                            </div>
-                        </nav>
-                    </SheetContent>
-                </Sheet>
+                {/* MOBILE TOGGLE */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden p-2 text-slate-300 hover:text-white"
+                >
+                    {isOpen ? <X /> : <Menu />}
+                </button>
             </div>
+
+            {/* MOBILE MENU */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="absolute top-20 left-4 right-4 bg-[#0B0F19] border border-white/10 rounded-xl p-6 shadow-2xl md:hidden flex flex-col gap-4 z-50"
+                    >
+                        {["Capabilities", "Methodology", "Vision"].map((item) => (
+                            <Link
+                                key={item}
+                                href={`#${item.toLowerCase()}`}
+                                onClick={() => setIsOpen(false)}
+                                className="text-lg font-medium text-slate-300 hover:text-primary font-mono"
+                            >
+                                {item}
+                            </Link>
+                        ))}
+                        <Link
+                            href="#contact"
+                            onClick={() => setIsOpen(false)}
+                            className="mt-4 w-full text-center px-6 py-3 bg-primary text-primary-foreground font-mono font-bold rounded hover:bg-white hover:text-secondary transition-all"
+                        >
+                            Start_Project
+                        </Link>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
-}
+};
