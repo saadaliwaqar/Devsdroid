@@ -6,21 +6,21 @@ import { Server, Cpu, Database, Network } from "lucide-react";
 const stats = [
     {
         label: "ARCHITECTURE",
-        value: "One Layer",
+        value: "Unified Team",
         icon: Network,
-        desc: "Single management interface for all engineering.",
+        desc: "End-to-end development under one roof.",
     },
     {
         label: "LATENCY",
         value: "< 24h",
         icon: Server,
-        desc: "From request to pod allocation in record time.",
+        desc: "Rapid project staffing and kick-off.",
     },
     {
         label: "CAPACITY",
         value: "Elastic",
         icon: Database,
-        desc: "Scale pods up or down based on load.",
+        desc: "Scale resources up or down based on load.",
     },
 ];
 
@@ -29,11 +29,11 @@ export const ModelSection = () => {
         <section id="methodology" className="py-24 container px-4 md:px-6">
             <div className="mb-12">
                 <h2 className="text-3xl md:text-5xl font-bold font-sans mb-4">
-                    The Agency Construction Kit.
+                    Technical Excellence, Delivered.
                 </h2>
                 <p className="text-slate-400 max-w-2xl text-lg">
-                    We are not an agency. We are the operating system that manages them.
-                    A vetted network of specialized engineering pods, unified under one
+                    We are not just a dev shop. We are a full-service technical partner.
+                    A versatile team of senior engineers and designers, unified under one
                     architectural standard.
                 </p>
             </div>

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export const Hero = () => {
     const [codeLines, setCodeLines] = useState([
-        "> Allocating_Pod...",
+        "> Initializing_Core...",
         "> Stack: React + Python...",
     ]);
 
@@ -27,7 +27,7 @@ export const Hero = () => {
                     <h1 className="text-5xl md:text-7xl font-bold leading-tight font-sans tracking-tight">
                         Your Vision. <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
-                            Engineered to Scale.
+                            Developed to Scale.
                         </span>
                         <motion.span
                             animate={{ opacity: [1, 0] }}
@@ -38,8 +38,8 @@ export const Hero = () => {
                         </motion.span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
-                        The architecture layer for specialized development pods.
-                        Decoupling strategy from execution to build powerful software.
+                        A unified team of elite developers building scalable software.
+                        From complex architecture to high-performance code.
                     </p>
                     <div className="flex flex-wrap gap-4">
                         <button className="px-8 py-4 bg-white text-secondary font-mono font-bold rounded hover:bg-slate-200 transition-colors">

@@ -4,8 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "DevsDroid | Managed Engineering Network",
-  description: "Your Vision. Engineered to Scale. The Architecture Layer for Specialized Development Pods.",
+  title: "DevsDroid | Premium Software Development Agency",
+  description: "Your Vision. Developed to Scale. Your Strategic Partner for Scalable Software Solutions.",
 };
 
 export default function RootLayout({

@@ -26,18 +26,17 @@ export const FoundersNote = () => {
 
                 <div className="space-y-6 text-lg text-slate-300 leading-relaxed font-light">
                     <p>
-                        "The traditional agency model is broken. It relies on generalized talent pools attempting to solve specialized problems. This leads to technical debt, missed deadlines, and suboptimal products."
+                        "The traditional outsourcing model is broken. It relies on disjointed teams and misaligned incentives. This leads to technical debt, missed deadlines, and suboptimal products."
                     </p>
                     <p>
-                        "We built DevsDroid to solve fragmentation. We are not just a dev shop; we are an architecture layer that decouples high-level strategy from low-level execution. We define the blueprint, then spin up the precise engineering pod required to execute it."
+                        "We built DevsDroid to solve this. We are a dedicated technical partner that couples high-level strategy with precise execution. We define the blueprint, then deploy the ideal cross-functional team required to bring it to life."
                     </p>
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-white/5 flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-slate-700/50 border border-white/10" />
                     <div>
-                        <div className="font-bold text-white font-sans">Alex B.</div>
-                        <div className="text-sm text-primary font-mono">Lead Architect & Founder</div>
+                        <div className="font-bold text-white font-sans">Founder of Devsdroid</div>
                     </div>
                 </div>
             </motion.div>

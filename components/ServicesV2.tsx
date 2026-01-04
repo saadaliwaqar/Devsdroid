@@ -60,7 +60,7 @@ export const ServicesV2 = () => {
                     Capabilities_V2.0
                 </h2>
                 <p className="text-slate-400 text-lg">
-                    Select your module. We allocate the perfect pod.
+                    Versatile stacks. Specialized expertise. One cohesive team.
                 </p>
             </div>
 
