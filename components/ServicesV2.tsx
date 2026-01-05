@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BrainCircuit, AppWindow, CloudCog, CheckCircle2 } from "lucide-react";
+import { BrainCircuit, AppWindow, Palette, CheckCircle2 } from "lucide-react";
 
 const services = [
     {
@@ -34,16 +34,17 @@ const services = [
         ],
     },
     {
-        title: "Cloud & DevOps",
-        icon: CloudCog,
-        description: "Resilient infrastructure designed for elastic scalability.",
+        title: "UI/UX & Product Design",
+        icon: Palette,
+        description: "Crafting intuitive, pixel-perfect experiences that drive user engagement.",
         features: [
-            "Google Cloud Platform (GCP) – Cloud Run, GKE, Vertex AI",
-            "AWS – Lambda, EC2, RDS, Bedrock",
-            "Vercel, Railway, & Netlify Deployments",
-            "Docker & Kubernetes Containerization",
-            "CI/CD Pipelines (GitHub Actions, GitLab CI)",
-            "Infrastructure as Code (Terraform, CDK)",
+            "Figma – Collaborative Interface Design & Prototyping",
+            "Adobe Creative Suite (Photoshop, Illustrator, After Effects)",
+            "Design Systems & Component Libraries",
+            "User Research, Wireframing & User Flows",
+            "Interactive Prototypes (Framer, Protopie)",
+            "Responsive Web & Mobile App Design",
+            "Brand Identity & Visual Language",
         ],
     },
 ];
