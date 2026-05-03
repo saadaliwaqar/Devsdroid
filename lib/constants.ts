@@ -1,4 +1,4 @@
-export const NAVBAR_CTA = "Contact Us";
+export const NAVBAR_CTA = "Start_Project";
 
 export const NAV_LINKS = [
     {
@@ -6,42 +6,28 @@ export const NAV_LINKS = [
         href: "/services",
     },
     {
-        title: "Research",
-        href: "/research",
-    },
-    {
-        title: "About Us",
+        title: "About",
         href: "/about",
     },
     {
-        title: "Associate Companies",
-        items: [
-            { title: "ABCG.io", href: "https://abcg.io" },
-            { title: "Medisure", href: "https://medisure.com" },
-        ],
+        title: "Contact",
+        href: "/contact",
     },
 ];
 
 export const HERO_CONTENT = {
-    headline: "At the intersection of Macro Research, Artificial Intelligence, and Global Capital Markets",
-    subheadline: "Navigate the markets with real-time AI analysis through **AlphaLens AI**, powered by our research models.",
-    ctaPrimary: "Discover More",
-    ctaSecondary: "Partner With Us",
+    headline: "Your Vision. Developed to Scale.",
+    subheadline: "A unified team of elite developers building scalable software, AI-powered agents, and automation systems.",
+    ctaPrimary: "Deploy_Vision",
+    ctaSecondary: "// View_Services",
 };
 
 export const STATS = [
-    { label: "Advices Given", value: "2100+" },
-    { label: "Investment Ideas Provided", value: "570+" },
-    { label: "Sharpe Ratio", value: ">2" },
-    { label: "Corporate Trainings", value: "13+" },
+    { label: "Projects Delivered", value: "50+" },
+    { label: "AI Agents Built", value: "30+" },
+    { label: "Client Retention", value: "95%" },
     { label: "Countries Served", value: "5+" },
 ];
-
-export const PERFORMANCE_HIGHLIGHT = {
-    statistic: "115%",
-    description: "Portfolio Return in H1 2025",
-    details: "Unmatched Investment Performance... prioritizing efficient asset allocation across FX, Commodity and Cryptocurrencies.",
-};
 
 export const FOOTER_INFO = {
     locations: [
@@ -49,8 +35,8 @@ export const FOOTER_INFO = {
         "86, 90 Paul St, London EC2A 4NE, UK",
     ],
     contact: {
-        email: "research@albaricg.com",
+        email: "hello@devsdroid.com",
         phone: "+92 3154 521 099",
     },
-    copyright: "2025 - ABCG",
+    copyright: "2025 - DevsDroid",
 };

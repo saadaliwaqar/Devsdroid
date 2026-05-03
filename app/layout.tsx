@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import { plusJakartaSans, jetbrainsMono } from "./fonts";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "DevsDroid | Premium Software Development Agency",
-  description: "Your Vision. Developed to Scale. Your Strategic Partner for Scalable Software Solutions.",
+  description: "Your Vision. Developed to Scale. Elite developers & AI engineers building scalable software, intelligent agents, and automation systems.",
+  keywords: ["software development", "AI agents", "automation", "web development", "full-stack", "LangGraph", "CrewAI", "Next.js"],
+  openGraph: {
+    title: "DevsDroid | Premium Software Development Agency",
+    description: "Your Vision. Developed to Scale. Elite developers & AI engineers building scalable software, intelligent agents, and automation systems.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

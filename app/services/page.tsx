@@ -1,147 +1,217 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart3, Bot, Code, Cpu } from "lucide-react";
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, BrainCircuit, Bot, AppWindow, Palette, CheckCircle2, Workflow } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { Footer } from "@/components/Footer";
 
 const SERVICES = [
     {
-        id: "research",
-        title: "Expert Research & Investment Ideas",
-        subtitle: "FX | Commodities | Crypto Currency",
-        description: "Leveraging 36 years of expertise, we provide research reports and alpha-focused investment ideas across FX, Commodities, and Crypto. Our blend of qualitative insights and quantitative models is designed to deliver Sharpe ratios above 2.",
-        image: "/service-research.png",
-        icon: BarChart3,
-        link: "/research"
+        id: "ai-generative",
+        title: "AI & Generative AI",
+        subtitle: "Intelligent Systems That Scale",
+        description: "We architect custom AI solutions — from LLM fine-tuning and RAG pipelines to multi-agent systems. Whether it's a private GPT, an AI-powered search engine, or a generative content platform, we build the intelligence layer for your product.",
+        icon: BrainCircuit,
+        features: [
+            "Custom LLM fine-tuning & hosting (Llama 3, Mistral, Phi-3)",
+            "Advanced RAG pipelines with private data integration",
+            "LangChain / LlamaIndex multi-agent systems",
+            "Vercel AI SDK, OpenAI Assistants, & Tool-calling",
+            "Prompt engineering & LLM evals (RAGAS, DeepEval)",
+            "Vector DBs: Pinecone, Weaviate, Chroma, Qdrant",
+        ],
+        gradient: "from-emerald-500/20 to-primary/5",
     },
     {
-        id: "alphalens",
-        title: "AlphaLens AI",
-        subtitle: "AI-Powered Real-Time Market Navigation",
-        description: "AlphaLens is our proprietary AI-based platform that delivers real-time analysis across FX, Commodities, and Crypto, backed by ABCG's research models. By combining macroeconomic indicators, technical signals, and qualitative developments, AlphaLens empowers investors to nowcast markets and identify alpha opportunities.",
-        image: "/service-alphalens.png",
-        icon: Cpu,
-        link: "/contact"
-    },
-    {
-        id: "custom-ai",
-        title: "AI Custom Solutions",
-        subtitle: "Tailored AI Assistants for Financial Institutions",
-        description: "Our AI Custom Solutions help research firms and investment teams transform their own methodologies into private AI-driven assistants. By understanding your data points, frameworks, and workflows, we design chatbots that operate within your environment – enabling analysts to access insights instantly and scale decision-making.",
-        image: "/service-custom-ai.png",
+        id: "ai-agents",
+        title: "AI Agents & Automation",
+        subtitle: "Autonomous Workflows, Zero Manual Effort",
+        description: "Deploy intelligent agents that reason, plan, and execute complex tasks autonomously. We build multi-agent systems, workflow automation pipelines, and AI-powered chatbots that transform how your business operates.",
         icon: Bot,
-        link: "/contact"
+        features: [
+            "Autonomous agents (LangGraph, CrewAI, AutoGen)",
+            "Multi-agent orchestration & task delegation",
+            "Workflow automation (n8n, Zapier, custom pipelines)",
+            "Intelligent chatbots with RAG & tool-calling",
+            "Business process automation & ETL pipelines",
+            "Custom API integrations & webhook orchestration",
+        ],
+        gradient: "from-blue-500/20 to-cyan-500/5",
     },
     {
-        id: "web-dev",
-        title: "Website Development",
-        subtitle: "Digital Platforms Built for Financial Institutions",
-        description: "We design and develop professional websites tailored for financial institutions and investment firms. With a deep understanding of the financial research landscape, we build platforms that showcase your insights, enhance client engagement, and integrate seamlessly with your research delivery workflows.",
-        image: "/service-web-dev.png",
-        icon: Code,
-        link: "/contact"
-    }
+        id: "web-mobile",
+        title: "Full-Stack Web & Mobile",
+        subtitle: "High-Performance Apps Built for Scale",
+        description: "From SaaS platforms to mobile apps, we build production-grade applications using modern frameworks. Server-rendered, SEO-optimized, and blazing fast — with real-time features and cloud-native architecture.",
+        icon: AppWindow,
+        features: [
+            "Next.js 14+ (App Router, Server Actions)",
+            "React + TypeScript + Tailwind CSS",
+            "Node.js • NestJS • Express • Python/FastAPI",
+            "React Native & Flutter Cross-platform",
+            "SaaS, Dashboards, CRM, & E-commerce",
+            "Cloud deployment: AWS, GCP, Vercel",
+        ],
+        gradient: "from-violet-500/20 to-purple-500/5",
+    },
+    {
+        id: "design",
+        title: "UI/UX & Product Design",
+        subtitle: "Pixel-Perfect Experiences That Convert",
+        description: "We design intuitive interfaces and full design systems that drive user engagement. From wireframes to interactive prototypes, our design process is research-driven, collaborative, and obsessed with detail.",
+        icon: Palette,
+        features: [
+            "Figma – Collaborative Interface Design & Prototyping",
+            "Design Systems & Component Libraries",
+            "User Research, Wireframing & User Flows",
+            "Interactive Prototypes (Framer, Protopie)",
+            "Responsive Web & Mobile App Design",
+            "Brand Identity & Visual Language",
+        ],
+        gradient: "from-amber-500/20 to-orange-500/5",
+    },
 ];
 
 export default function ServicesPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-background">
+        <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative py-32 flex flex-col items-center justify-center text-center overflow-hidden min-h-[60vh]">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-background/80 dark:bg-slate-950/80 z-10" />
-                    <div
-                        className="absolute inset-0 bg-cover bg-center z-0 opacity-50 blur-sm scale-110"
-                        style={{ backgroundImage: "url('/finance-hero-services.png')" }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-20" />
-                    {/* Abstract Shapes */}
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-                    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] animate-pulse delay-1000" />
+            <section className="relative py-32 md:py-40 flex flex-col items-center justify-center text-center overflow-hidden min-h-[50vh]">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute inset-0 bg-grid opacity-30" />
+                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px] animate-pulse-glow" />
+                    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[150px] animate-pulse-glow" style={{ animationDelay: "1s" }} />
+                    <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-background to-transparent" />
                 </div>
 
-                <div className="container relative z-30 px-4 md:px-6">
-                    <div className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider text-primary uppercase bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-                        Research 2.0
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-bold font-serif mb-8 tracking-tight max-w-4xl mx-auto">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-foreground/70">
-                            Our Expertise
-                        </span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                        Delivering research, investment ideas, AI automation, and digital solutions for modern capital markets.
-                    </p>
+                <div className="container relative z-10 px-4 md:px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6"
+                    >
+                        <Workflow className="w-4 h-4 text-primary" />
+                        <span className="text-primary font-mono text-xs tracking-widest uppercase">Our_Services</span>
+                    </motion.div>
+
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-5xl md:text-7xl font-bold font-sans mb-8 tracking-tight max-w-4xl mx-auto"
+                    >
+                        What We{" "}
+                        <span className="text-gradient-primary">Build</span>
+                    </motion.h1>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
+                    >
+                        AI-powered software, intelligent agents, full-stack applications, and product design — delivered by one unified team.
+                    </motion.p>
                 </div>
             </section>
 
-            {/* Services Grid Layout */}
+            {/* Services Detail Grid */}
             <section className="py-20 md:py-32 container px-4 md:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div className="space-y-8">
                     {SERVICES.map((service, index) => (
-                        <div
+                        <motion.div
                             key={service.id}
-                            className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-md shadow-lg transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/10 hover:border-primary/20"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
+                            className="group relative bg-[#0a0e18]/80 border border-white/5 rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-500"
                         >
-                            {/* Image Container */}
-                            <div className="relative h-64 w-full overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10" />
-                                <Image
-                                    src={service.image}
-                                    alt={service.title}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute top-4 right-4 z-20 h-12 w-12 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-white transition-colors group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                                    <service.icon className="w-6 h-6" />
-                                </div>
-                            </div>
+                            {/* Hover Gradient */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
-                            {/* Content */}
-                            <div className="flex flex-col flex-1 p-8">
-                                <h3 className="text-sm font-medium tracking-wide text-primary mb-2 uppercase">
-                                    {service.subtitle.split('|')[0].trim()}
-                                </h3>
-                                <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4 group-hover:text-primary transition-colors">
-                                    {service.title}
-                                </h2>
-                                <p className="text-muted-foreground leading-relaxed mb-8 flex-1">
-                                    {service.description}
-                                </p>
+                            <div className="relative z-10 p-8 md:p-10 grid md:grid-cols-2 gap-8 items-start">
+                                {/* Left: Info */}
+                                <div>
+                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 mb-6 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
+                                        <service.icon className="w-7 h-7 text-slate-400 group-hover:text-primary transition-colors" />
+                                    </div>
 
-                                <div className="mt-auto">
-                                    <Link href={service.link} className="inline-flex items-center text-sm font-semibold transition-colors hover:text-primary group/link">
-                                        Learn More
-                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                                    <div className="text-xs font-mono text-primary uppercase tracking-widest mb-2">
+                                        {service.subtitle}
+                                    </div>
+
+                                    <h2 className="text-2xl md:text-3xl font-bold font-sans text-white mb-4">
+                                        {service.title}
+                                    </h2>
+
+                                    <p className="text-slate-400 leading-relaxed mb-6">
+                                        {service.description}
+                                    </p>
+
+                                    <Link
+                                        href="/contact"
+                                        className="inline-flex items-center gap-2 text-sm font-mono font-bold text-primary hover:text-white transition-colors group/link"
+                                    >
+                                        Start_Project
+                                        <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
+
+                                {/* Right: Features */}
+                                <div>
+                                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6 md:hidden" />
+                                    <ul className="space-y-3">
+                                        {service.features.map((feature, i) => (
+                                            <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
+                                                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                                                <span className="font-mono text-xs md:text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+
+                            {/* Bottom Glow */}
+                            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        </motion.div>
                     ))}
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="relative py-32 container px-4 md:px-6 my-20">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-gray-900 to-black overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-primary/10 to-transparent"></div>
-                </div>
+            <section className="py-24 md:py-32 relative overflow-hidden">
+                <div className="absolute inset-0 bg-primary/3 pointer-events-none" />
+                <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
 
-                <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto space-y-8">
-                    <h2 className="text-3xl md:text-5xl font-serif font-bold text-white tracking-tight">
-                        Ready to elevate your <span className="text-primary">investment strategy?</span>
-                    </h2>
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                        Discover how ABCG Research can support your firm with macro research, AI automation, and bespoke investment solutions.
-                    </p>
-                    <Link href="/contact">
-                        <Button size="lg" className="h-14 px-10 text-lg rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
-                            Request a Consultation
-                        </Button>
-                    </Link>
+                <div className="container relative z-10 px-4 md:px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="max-w-3xl mx-auto text-center"
+                    >
+                        <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6">
+                            Ready to build{" "}
+                            <span className="text-primary">something great?</span>
+                        </h2>
+                        <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+                            Tell us about your project. We&apos;ll assemble the right team and start building within 48 hours.
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground font-mono font-bold rounded-lg hover:bg-white hover:text-[#0B0F19] transition-all duration-300 glow-primary glow-primary-hover text-lg"
+                        >
+                            Start_Your_Project
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    </motion.div>
                 </div>
             </section>
+
+            <Footer />
         </div>
     );
 }
