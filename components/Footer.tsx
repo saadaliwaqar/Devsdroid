@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FOOTER_INFO } from "@/lib/constants";
-import { Linkedin, Github, Twitter, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
     return (
@@ -16,11 +16,12 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="lg:col-span-1 space-y-6">
                         <Link href="/" className="inline-block">
-                            <div className="relative w-48 h-12">
+                            <div className="relative w-[80px] h-12">
                                 <Image
-                                    src="/logo-transparent.png"
+                                    src="/logo-devsdroid.png"
                                     alt="DevsDroid Logo"
                                     fill
+                                    sizes="80px"
                                     className="object-contain object-left"
                                 />
                             </div>
@@ -28,22 +29,6 @@ export function Footer() {
                         <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
                             Your strategic partner for scalable software solutions, AI agents, and automation systems.
                         </p>
-                        <div className="flex gap-3">
-                            {[
-                                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                                { icon: Github, href: "#", label: "GitHub" },
-                                { icon: Twitter, href: "#", label: "Twitter" },
-                            ].map((social) => (
-                                <Link
-                                    key={social.label}
-                                    href={social.href}
-                                    className="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/20 hover:bg-primary/5 transition-all duration-300"
-                                    aria-label={social.label}
-                                >
-                                    <social.icon className="w-4 h-4" />
-                                </Link>
-                            ))}
-                        </div>
                     </div>
 
                     {/* Navigation */}
@@ -111,15 +96,6 @@ export function Footer() {
                                 <Phone className="w-4 h-4 shrink-0" />
                                 {FOOTER_INFO.contact.phone}
                             </a>
-                            {FOOTER_INFO.locations.map((loc, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex items-start gap-3 text-sm text-slate-400"
-                                >
-                                    <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
-                                    <span>{loc}</span>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </div>

@@ -33,11 +33,12 @@ export const Navbar = () => {
             >
                 {/* LOGO */}
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="relative w-56 h-14 md:w-64 md:h-16 transition-transform group-hover:scale-105">
+                    <div className="relative w-[74px] h-12 md:w-[88px] md:h-14 transition-transform group-hover:scale-105">
                         <Image
-                            src="/logo-transparent.png"
+                            src="/logo-devsdroid.png"
                             alt="DevsDroid Logo"
                             fill
+                            sizes="88px"
                             className="object-contain object-left"
                             priority
                         />
