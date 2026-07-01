@@ -10,7 +10,7 @@ const agentCapabilities = [
         icon: Bot,
         title: "Autonomous AI Agents",
         description: "Self-directed agents that reason, plan, and execute complex multi-step tasks using LangGraph, CrewAI, and AutoGen.",
-        tags: ["LangGraph", "CrewAI", "AutoGen"],
+        tags: ["LangGraph", "CrewAI", "AutoGen", "OpenClaw", "Hermes"],
         color: "from-primary/20 to-emerald-500/10",
     },
     {
