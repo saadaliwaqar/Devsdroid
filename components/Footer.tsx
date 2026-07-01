@@ -7,7 +7,7 @@ import { Linkedin, Github, Twitter, Mail, MapPin, Phone, ArrowUpRight } from "lu
 
 export function Footer() {
     return (
-        <footer className="relative w-full border-t border-white/5 bg-[#070a12] pt-16 pb-8">
+        <footer className="relative w-full border-t border-white/5 bg-[#090C13] pt-16 pb-8">
             {/* Top Gradient */}
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
@@ -25,7 +25,7 @@ export function Footer() {
                                 />
                             </div>
                         </Link>
-                        <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
+                        <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
                             Your strategic partner for scalable software solutions, AI agents, and automation systems.
                         </p>
                         <div className="flex gap-3">
@@ -60,7 +60,7 @@ export function Footer() {
                                 <Link
                                     key={link.label}
                                     href={link.href}
-                                    className="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
+                                    className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1 group"
                                 >
                                     {link.label}
                                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
@@ -83,7 +83,7 @@ export function Footer() {
                             ].map((service) => (
                                 <span
                                     key={service}
-                                    className="text-sm text-slate-500"
+                                    className="text-sm text-slate-400"
                                 >
                                     {service}
                                 </span>
@@ -99,14 +99,14 @@ export function Footer() {
                         <div className="space-y-4">
                             <a
                                 href={`mailto:${FOOTER_INFO.contact.email}`}
-                                className="flex items-center gap-3 text-sm text-slate-500 hover:text-primary transition-colors"
+                                className="flex items-center gap-3 text-sm text-slate-400 hover:text-primary transition-colors"
                             >
                                 <Mail className="w-4 h-4 shrink-0" />
                                 {FOOTER_INFO.contact.email}
                             </a>
                             <a
                                 href={`tel:${FOOTER_INFO.contact.phone.replace(/ /g, "")}`}
-                                className="flex items-center gap-3 text-sm text-slate-500 hover:text-primary transition-colors"
+                                className="flex items-center gap-3 text-sm text-slate-400 hover:text-primary transition-colors"
                             >
                                 <Phone className="w-4 h-4 shrink-0" />
                                 {FOOTER_INFO.contact.phone}
@@ -114,7 +114,7 @@ export function Footer() {
                             {FOOTER_INFO.locations.map((loc, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex items-start gap-3 text-sm text-slate-500"
+                                    className="flex items-start gap-3 text-sm text-slate-400"
                                 >
                                     <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
                                     <span>{loc}</span>

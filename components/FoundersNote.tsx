@@ -1,50 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
 export const FoundersNote = () => {
     return (
-        <section id="vision" className="py-24 md:py-32 container px-4 md:px-6 relative flex justify-center">
-            {/* Background Blur */}
+        <section id="vision" className="py-24 md:py-32 container mx-auto max-w-7xl px-4 md:px-6 relative">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
+                <div className="w-[520px] h-[520px] bg-secondary/10 rounded-full blur-[130px]" />
             </div>
 
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative z-10 max-w-4xl w-full bg-[#0a0e18]/60 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-2xl shadow-2xl"
+                transition={{ duration: 0.7 }}
+                className="relative z-10 max-w-4xl mx-auto"
             >
-                <Quote className="w-10 h-10 text-primary mb-8 opacity-40" />
-
-                <h2 className="text-3xl md:text-4xl font-bold font-sans mb-6">
-                    The Architect&apos;s Vision
-                </h2>
-
-                <div className="space-y-6 text-lg text-slate-300 leading-relaxed font-light">
-                    <p>
-                        &ldquo;The traditional outsourcing model is broken. It relies on disjointed teams
-                        and misaligned incentives. This leads to technical debt, missed deadlines,
-                        and suboptimal products.&rdquo;
-                    </p>
-                    <p>
-                        &ldquo;We built DevsDroid to solve this. We are a dedicated technical partner
-                        that couples high-level strategy with precise execution. We define the
-                        blueprint, then deploy the ideal cross-functional team — engineers, AI
-                        specialists, and designers — to bring it to life.&rdquo;
-                    </p>
+                <div className="flex items-center gap-2 mb-8 justify-center">
+                    <span className="eyebrow">The_Vision</span>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-white/5 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-white/10 flex items-center justify-center text-primary font-bold text-lg">
+                {/* Oversized editorial quote mark */}
+                <div className="text-primary/25 font-serif text-[7rem] leading-[0.5] h-16 text-center select-none">
+                    &ldquo;
+                </div>
+
+                <blockquote className="text-center space-y-6">
+                    <p className="display text-2xl md:text-3xl lg:text-[2.5rem] leading-[1.2] text-white">
+                        The traditional outsourcing model is broken. We built DevsDroid as a
+                        <span className="text-primary"> dedicated technical partner</span> that couples
+                        high-level strategy with precise execution.
+                    </p>
+                    <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                        We define the blueprint, then deploy the ideal cross-functional team —
+                        engineers, AI specialists, and designers — to bring it to life. One team,
+                        one standard, zero misaligned incentives.
+                    </p>
+                </blockquote>
+
+                <div className="mt-10 flex items-center gap-4 justify-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-secondary/40 border border-white/10 flex items-center justify-center text-primary font-bold text-lg">
                         S
                     </div>
-                    <div>
-                        <div className="font-bold text-white font-sans">Saad Ali</div>
-                        <div className="text-sm text-slate-500 font-mono">Founder, DevsDroid</div>
+                    <div className="text-left">
+                        <div className="font-bold text-white">Saad Ali</div>
+                        <div className="text-sm text-muted-foreground font-mono">Founder, DevsDroid</div>
                     </div>
                 </div>
             </motion.div>

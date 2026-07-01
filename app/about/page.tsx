@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Code2, Users, Zap, Globe, BrainCircuit, Layers, Target, Rocket } from "lucide-react";
+import { ArrowRight, Code2, Users, BrainCircuit, Layers, Target } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
 const coreValues = [
@@ -34,33 +34,33 @@ export default function AboutPage() {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative py-32 md:py-40 flex flex-col items-center justify-center text-center overflow-hidden min-h-[50vh]">
+            <section className="relative py-32 md:py-44 flex flex-col items-center justify-center text-center overflow-hidden min-h-[55vh]">
                 <div className="absolute inset-0 -z-10">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[120px] animate-pulse-glow" />
-                    <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-secondary/20 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: "0.7s" }} />
+                    <div className="absolute inset-0 bg-grid opacity-40" />
+                    <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[130px] animate-pulse-glow" />
+                    <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-[130px] animate-pulse-glow" style={{ animationDelay: "0.7s" }} />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_92%)]" />
                     <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-background to-transparent" />
                 </div>
 
-                <div className="container relative z-10 px-4 md:px-6">
+                <div className="container mx-auto max-w-7xl relative z-10 px-4 md:px-6">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6"
+                        className="inline-flex items-center gap-2 mb-7"
                     >
                         <Target className="w-4 h-4 text-primary" />
-                        <span className="text-primary font-mono text-xs tracking-widest uppercase">About_Us</span>
+                        <span className="eyebrow">About_Us</span>
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans tracking-tight mb-8 max-w-5xl mx-auto leading-tight"
+                        className="display text-5xl md:text-7xl lg:text-8xl max-w-5xl mx-auto"
                     >
                         We Build the{" "}
-                        <span className="text-gradient-primary">Future</span>
-                        <br />
+                        <span className="text-primary text-glow">Future</span>{" "}
                         of Software
                     </motion.h1>
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
+                        className="mt-8 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
                     >
                         DevsDroid is a premium software development agency specializing in AI-powered applications, autonomous agents, and scalable digital products.
                     </motion.p>
@@ -76,22 +76,22 @@ export default function AboutPage() {
             </section>
 
             {/* Story Section */}
-            <section className="container px-4 md:px-6 py-16 md:py-24">
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <section className="container mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24">
+                <div className="grid lg:grid-cols-2 gap-6 items-start">
                     {/* Left: Story */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-[#0a0e18]/80 border border-white/5 rounded-2xl p-8 md:p-10 hover:border-primary/20 transition-all duration-500"
+                        className="surface hover-lift rounded-2xl p-8 md:p-10 hover:border-primary/25"
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
-                            <span className="text-primary font-mono text-xs tracking-widest uppercase">Our_Story</span>
+                        <div className="flex items-center gap-2 mb-6">
+                            <span className="eyebrow">Our_Story</span>
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl font-bold font-sans mb-6">
+                        <h2 className="display text-3xl md:text-4xl lg:text-5xl mb-6">
                             From Code to{" "}
-                            <span className="text-gradient-white">Intelligence</span>
+                            <span className="text-primary">Intelligence</span>
                         </h2>
 
                         <div className="space-y-6 text-lg text-slate-400 leading-relaxed">
@@ -110,16 +110,16 @@ export default function AboutPage() {
                     </motion.div>
 
                     {/* Right: Timeline + Stats */}
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                         {/* Timeline */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="bg-[#0a0e18]/80 border border-white/5 rounded-2xl p-8 hover:border-primary/20 transition-all duration-500"
+                            className="surface hover-lift rounded-2xl p-8 hover:border-primary/25"
                         >
-                            <div className="text-xs font-mono text-primary tracking-widest uppercase mb-6">Timeline</div>
+                            <div className="eyebrow mb-6">Timeline</div>
                             <div className="space-y-6">
                                 {milestones.map((m, i) => (
                                     <div key={i} className="flex gap-4 items-start">
@@ -152,10 +152,10 @@ export default function AboutPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.2 + i * 0.05 }}
-                                    className="bg-[#0a0e18]/80 border border-white/5 rounded-xl p-6 text-center hover:border-primary/20 transition-all duration-300"
+                                    className="surface rounded-xl p-6 text-center hover:border-primary/25 transition-colors duration-300"
                                 >
-                                    <div className="text-3xl font-bold text-white font-mono">{stat.value}</div>
-                                    <div className="text-xs text-slate-500 font-mono uppercase tracking-wider mt-1">{stat.label}</div>
+                                    <div className="text-3xl font-extrabold text-white tracking-tight">{stat.value}</div>
+                                    <div className="text-xs text-muted-foreground font-mono uppercase tracking-[0.16em] mt-1">{stat.label}</div>
                                 </motion.div>
                             ))}
                         </div>
@@ -164,16 +164,16 @@ export default function AboutPage() {
             </section>
 
             {/* Core Values */}
-            <section className="container px-4 md:px-6 py-20 md:py-32">
-                <div className="text-center mb-16">
+            <section className="container mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-32">
+                <div className="mb-16 max-w-3xl mx-auto text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/20 border border-secondary/30 mb-6"
+                        className="flex items-center justify-center gap-2 mb-6"
                     >
                         <Layers className="w-4 h-4 text-primary" />
-                        <span className="text-primary font-mono text-xs tracking-widest uppercase">Principles</span>
+                        <span className="eyebrow">Principles</span>
                     </motion.div>
 
                     <motion.h2
@@ -181,38 +181,37 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-3xl md:text-5xl font-bold font-sans mb-4"
+                        className="display text-4xl md:text-5xl lg:text-6xl mb-4"
                     >
-                        How We Operate
+                        How We <span className="text-primary">Operate</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg text-slate-400 max-w-2xl mx-auto"
+                        className="text-lg text-slate-400 max-w-2xl"
                     >
                         Three non-negotiable principles that define everything we build.
                     </motion.p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-5">
                     {coreValues.map((item, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className="group relative bg-[#0a0e18]/80 border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-primary/20 transition-all duration-500"
+                            className="group surface hover-lift relative rounded-2xl p-8 overflow-hidden hover:border-primary/25"
                         >
-                            <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 mb-6 group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:scale-110 transition-all duration-300">
-                                <item.icon className="w-7 h-7 text-slate-400 group-hover:text-primary transition-colors" />
+                            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <item.icon className="w-7 h-7 text-primary" />
                             </div>
-                            <h3 className="text-xl font-bold font-sans text-white mb-3">{item.title}</h3>
+                            <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
                             <p className="text-slate-400 leading-relaxed">{item.desc}</p>
 
-                            {/* Bottom glow */}
                             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                     ))}
@@ -220,18 +219,18 @@ export default function AboutPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-24 md:py-32 relative overflow-hidden">
-                <div className="absolute inset-0 bg-primary/3 pointer-events-none" />
+            <section className="py-24 md:py-32 relative overflow-hidden border-t border-white/5 bg-[#090C13]">
                 <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+                <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
 
-                <div className="container relative z-10 px-4 md:px-6">
+                <div className="container mx-auto max-w-7xl relative z-10 px-4 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="max-w-3xl mx-auto text-center"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6">
+                        <h2 className="display text-4xl md:text-5xl lg:text-6xl mb-6">
                             Let&apos;s build your{" "}
                             <span className="text-primary">next product</span>
                         </h2>
@@ -241,16 +240,16 @@ export default function AboutPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 href="/services"
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white font-mono font-bold rounded-lg hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white font-mono font-bold rounded-xl hover:bg-white/[0.06] hover:border-white/30 transition-all duration-300"
                             >
                                 {"// View_Services"}
                             </Link>
                             <Link
                                 href="/contact"
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-mono font-bold rounded-lg hover:bg-white hover:text-[#0B0F19] transition-all duration-300 glow-primary glow-primary-hover"
+                                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-mono font-bold rounded-xl hover:bg-primary-strong transition-all duration-300 glow-primary glow-primary-hover"
                             >
                                 Start_Project
-                                <ArrowRight className="w-5 h-5" />
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </motion.div>

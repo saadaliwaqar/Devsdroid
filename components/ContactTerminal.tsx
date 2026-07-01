@@ -26,7 +26,6 @@ export const ContactTerminal = () => {
         setStep("processing");
         setLogs([]);
 
-        // Simulation Sequence
         const sequence = [
             { text: "> Initializing secure channel...", delay: 800 },
             { text: "> Handshaking with core servs...", delay: 1200 },
@@ -67,22 +66,34 @@ export const ContactTerminal = () => {
     };
 
     return (
-        <section id="contact" className="py-24 container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-                <div className="mb-8 text-center md:text-left">
-                    <h2 className="text-3xl font-bold font-sans mb-2">Initialize Protocol</h2>
-                    <p className="text-slate-400">Enter your parameters to start the project.</p>
+        <section id="contact" className="py-24 md:py-32 container mx-auto max-w-7xl px-4 md:px-6 relative">
+            <div className="absolute left-1/2 -translate-x-1/2 top-10 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+            <div className="max-w-3xl mx-auto relative z-10">
+                <div className="mb-10 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-5">
+                        <Terminal className="w-4 h-4 text-primary" />
+                        <span className="eyebrow">Start_A_Project</span>
+                    </div>
+                    <h2 className="display text-4xl md:text-5xl lg:text-6xl mb-4">
+                        Initialize <span className="text-primary">Protocol</span>
+                    </h2>
+                    <p className="text-slate-400 text-lg">Enter your parameters — our architects respond within 24 hours.</p>
                 </div>
 
-                <div className="bg-[#0B0F19] border border-white/10 rounded-xl overflow-hidden shadow-2xl min-h-[400px] flex flex-col">
+                <div className="surface rounded-2xl overflow-hidden shadow-2xl min-h-[420px] flex flex-col">
                     {/* Terminal Header */}
-                    <div className="bg-white/5 p-3 flex items-center gap-2 border-b border-white/5">
-                        <Terminal className="w-4 h-4 text-slate-400" />
-                        <span className="text-xs font-mono text-slate-400">contact-shell — 80x24</span>
+                    <div className="bg-white/[0.03] px-4 py-3 flex items-center gap-2 border-b border-white/5">
+                        <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                            <div className="w-3 h-3 rounded-full bg-amber-500/60" />
+                            <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                        </div>
+                        <span className="ml-3 text-xs font-mono text-slate-500">contact-shell — devsdroid</span>
                     </div>
 
                     {/* Content Area */}
-                    <div className="p-6 md:p-8 font-mono flex-1 flex flex-col">
+                    <div className="p-6 md:p-8 flex-1 flex flex-col">
                         {step === "form" && (
                             <motion.div
                                 initial={{ opacity: 0 }}
@@ -90,51 +101,54 @@ export const ContactTerminal = () => {
                                 className="space-y-6"
                             >
                                 <div className="space-y-2">
-                                    <label className="block text-primary text-sm group-focus-within:text-white transition-colors">
-                                        user@devsdroid:~$ typeset -x NAME=
+                                    <label htmlFor="ct-name" className="flex items-center gap-2 text-sm font-mono text-slate-300">
+                                        <span className="text-primary">~$</span> Full name
                                     </label>
                                     <input
+                                        id="ct-name"
                                         type="text"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-700 transition-colors"
-                                        placeholder='"John Doe"'
+                                        className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-600 transition-colors"
+                                        placeholder="John Doe"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="block text-primary text-sm group-focus-within:text-white transition-colors">
-                                        user@devsdroid:~$ typeset -x EMAIL=
+                                    <label htmlFor="ct-email" className="flex items-center gap-2 text-sm font-mono text-slate-300">
+                                        <span className="text-primary">~$</span> Work email
                                     </label>
                                     <input
+                                        id="ct-email"
                                         type="email"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-700 transition-colors"
-                                        placeholder='"john@company.com"'
+                                        className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-600 transition-colors"
+                                        placeholder="john@company.com"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="block text-primary text-sm group-focus-within:text-white transition-colors">
-                                        user@devsdroid:~$ echo $PROJECT_SCOPE
+                                    <label htmlFor="ct-scope" className="flex items-center gap-2 text-sm font-mono text-slate-300">
+                                        <span className="text-primary">~$</span> Project scope
                                     </label>
                                     <textarea
+                                        id="ct-scope"
                                         rows={4}
                                         value={formData.scope}
                                         onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                                        className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-700 transition-colors resize-none"
-                                        placeholder='"Describe your requirements..."'
+                                        className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-600 transition-colors resize-none"
+                                        placeholder="Describe your requirements..."
                                     />
                                 </div>
 
                                 <div className="pt-4">
                                     <button
                                         onClick={handleExecute}
-                                        className="w-full md:w-auto px-6 py-3 bg-primary/10 border border-primary text-primary hover:bg-primary hover:text-[#0B0F19] transition-all font-bold flex items-center justify-center gap-2 group"
+                                        className="w-full md:w-auto px-7 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary-strong transition-all font-mono font-bold flex items-center justify-center gap-2 group glow-primary glow-primary-hover"
                                     >
                                         <span>{`>`} EXECUTE_REQUEST</span>
-                                        <span className="animate-pulse group-hover:text-[#0B0F19]">_</span>
+                                        <span className="animate-pulse">_</span>
                                     </button>
                                 </div>
                             </motion.div>
@@ -148,7 +162,7 @@ export const ContactTerminal = () => {
                                             key={i}
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            className={`${log.includes("Error") ? "text-red-400" : "text-primary"}`}
+                                            className={`${log.includes("Error") || log.includes("CRITICAL") ? "text-red-400" : "text-primary"}`}
                                         >
                                             {log}
                                         </motion.div>

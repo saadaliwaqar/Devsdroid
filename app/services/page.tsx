@@ -76,39 +76,40 @@ export default function ServicesPage() {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative py-32 md:py-40 flex flex-col items-center justify-center text-center overflow-hidden min-h-[50vh]">
+            <section className="relative py-32 md:py-44 flex flex-col items-center justify-center text-center overflow-hidden min-h-[50vh]">
                 <div className="absolute inset-0 -z-10">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
+                    <div className="absolute inset-0 bg-grid opacity-40" />
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px] animate-pulse-glow" />
                     <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[150px] animate-pulse-glow" style={{ animationDelay: "1s" }} />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_92%)]" />
                     <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-background to-transparent" />
                 </div>
 
-                <div className="container relative z-10 px-4 md:px-6">
+                <div className="container mx-auto max-w-7xl relative z-10 px-4 md:px-6">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6"
+                        className="inline-flex items-center gap-2 mb-7"
                     >
                         <Workflow className="w-4 h-4 text-primary" />
-                        <span className="text-primary font-mono text-xs tracking-widest uppercase">Our_Services</span>
+                        <span className="eyebrow">Our_Services</span>
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-bold font-sans mb-8 tracking-tight max-w-4xl mx-auto"
+                        className="display text-5xl md:text-7xl lg:text-8xl max-w-4xl mx-auto"
                     >
                         What We{" "}
-                        <span className="text-gradient-primary">Build</span>
+                        <span className="text-primary text-glow">Build</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
+                        className="mt-8 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
                     >
                         AI-powered software, intelligent agents, full-stack applications, and product design — delivered by one unified team.
                     </motion.p>
@@ -116,32 +117,36 @@ export default function ServicesPage() {
             </section>
 
             {/* Services Detail Grid */}
-            <section className="py-20 md:py-32 container px-4 md:px-6">
-                <div className="space-y-8">
+            <section className="py-16 md:py-24 container mx-auto max-w-7xl px-4 md:px-6">
+                <div className="space-y-6">
                     {SERVICES.map((service, index) => (
                         <motion.div
                             key={service.id}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className="group relative bg-[#0a0e18]/80 border border-white/5 rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-500"
+                            className="group surface hover-lift relative rounded-2xl overflow-hidden hover:border-primary/25"
                         >
-                            {/* Hover Gradient */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+                            {/* Big faint index */}
+                            <div className="absolute top-6 right-8 font-mono text-6xl md:text-7xl font-bold text-white/[0.03] group-hover:text-primary/10 transition-colors select-none">
+                                0{index + 1}
+                            </div>
 
                             <div className="relative z-10 p-8 md:p-10 grid md:grid-cols-2 gap-8 items-start">
                                 {/* Left: Info */}
                                 <div>
-                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 mb-6 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
-                                        <service.icon className="w-7 h-7 text-slate-400 group-hover:text-primary transition-colors" />
+                                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 mb-6">
+                                        <service.icon className="w-7 h-7 text-primary" />
                                     </div>
 
-                                    <div className="text-xs font-mono text-primary uppercase tracking-widest mb-2">
+                                    <div className="eyebrow mb-3">
                                         {service.subtitle}
                                     </div>
 
-                                    <h2 className="text-2xl md:text-3xl font-bold font-sans text-white mb-4">
+                                    <h2 className="display text-2xl md:text-3xl lg:text-4xl text-white mb-4">
                                         {service.title}
                                     </h2>
 
@@ -151,7 +156,7 @@ export default function ServicesPage() {
 
                                     <Link
                                         href="/contact"
-                                        className="inline-flex items-center gap-2 text-sm font-mono font-bold text-primary hover:text-white transition-colors group/link"
+                                        className="inline-flex items-center gap-2 text-sm font-mono font-bold text-primary hover:text-primary-strong transition-colors group/link"
                                     >
                                         Start_Project
                                         <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
@@ -160,12 +165,12 @@ export default function ServicesPage() {
 
                                 {/* Right: Features */}
                                 <div>
-                                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6 md:hidden" />
+                                    <div className="rule mb-6 md:hidden" />
                                     <ul className="space-y-3">
                                         {service.features.map((feature, i) => (
                                             <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                                                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                                                <span className="font-mono text-xs md:text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                                                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                                                <span className="leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors">
                                                     {feature}
                                                 </span>
                                             </li>
@@ -174,7 +179,6 @@ export default function ServicesPage() {
                                 </div>
                             </div>
 
-                            {/* Bottom Glow */}
                             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                     ))}
@@ -182,18 +186,18 @@ export default function ServicesPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 md:py-32 relative overflow-hidden">
-                <div className="absolute inset-0 bg-primary/3 pointer-events-none" />
+            <section className="py-24 md:py-32 relative overflow-hidden border-t border-white/5 bg-[#090C13]">
                 <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+                <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
 
-                <div className="container relative z-10 px-4 md:px-6">
+                <div className="container mx-auto max-w-7xl relative z-10 px-4 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="max-w-3xl mx-auto text-center"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6">
+                        <h2 className="display text-4xl md:text-5xl lg:text-6xl mb-6">
                             Ready to build{" "}
                             <span className="text-primary">something great?</span>
                         </h2>
@@ -202,10 +206,10 @@ export default function ServicesPage() {
                         </p>
                         <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground font-mono font-bold rounded-lg hover:bg-white hover:text-[#0B0F19] transition-all duration-300 glow-primary glow-primary-hover text-lg"
+                            className="group inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground font-mono font-bold rounded-xl hover:bg-primary-strong transition-all duration-300 glow-primary glow-primary-hover text-lg"
                         >
                             Start_Your_Project
-                            <ArrowRight className="w-5 h-5" />
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </motion.div>
                 </div>

@@ -68,20 +68,19 @@ const services = [
 
 export const ServicesV2 = () => {
     return (
-        <section id="capabilities" className="py-24 container px-4 md:px-6 relative">
-            {/* Background Decor */}
+        <section id="capabilities" className="py-24 md:py-32 container mx-auto max-w-7xl px-4 md:px-6 relative">
             <div className="absolute right-0 top-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute left-0 bottom-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="mb-16 max-w-3xl mx-auto text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/20 border border-secondary/30 mb-6"
+                    className="flex items-center justify-center gap-2 mb-6"
                 >
                     <Workflow className="w-4 h-4 text-primary" />
-                    <span className="text-primary font-mono text-xs tracking-widest uppercase">Services</span>
+                    <span className="eyebrow">Services</span>
                 </motion.div>
 
                 <motion.h2
@@ -89,32 +88,31 @@ export const ServicesV2 = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-3xl md:text-5xl font-bold font-sans mb-6"
+                    className="display text-4xl md:text-5xl lg:text-6xl"
                 >
-                    What We Build
+                    What We <span className="text-primary">Build</span>
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="text-slate-400 text-lg"
+                    className="mt-6 text-slate-400 text-lg"
                 >
                     Versatile stacks. Specialized expertise. One cohesive team.
                 </motion.p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-5">
                 {services.map((service, idx) => (
                     <motion.div
                         key={idx}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="group relative bg-[#0a0e18]/80 border border-white/5 rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-500 flex flex-col"
+                        transition={{ delay: idx * 0.08 }}
+                        className="group surface hover-lift relative rounded-2xl overflow-hidden hover:border-primary/25 flex flex-col"
                     >
-                        {/* Background Gradient on Hover */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
                         {/* Header */}
@@ -122,7 +120,7 @@ export const ServicesV2 = () => {
                             <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 mb-6 group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
                                 <service.icon className="w-7 h-7 text-slate-400 group-hover:text-primary transition-colors" />
                             </div>
-                            <h3 className="text-2xl font-bold font-sans text-white mb-2">
+                            <h3 className="text-2xl font-bold text-white mb-2">
                                 {service.title}
                             </h3>
                             <p className="text-slate-400 text-sm leading-relaxed min-h-[40px]">
@@ -132,12 +130,12 @@ export const ServicesV2 = () => {
 
                         {/* List */}
                         <div className="p-8 pt-0 flex-1 relative z-10">
-                            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6" />
+                            <div className="rule mb-6" />
                             <ul className="space-y-3">
                                 {service.features.map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                                        <span className="font-mono text-xs md:text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                                        <span className="leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors">
                                             {feature}
                                         </span>
                                     </li>
@@ -145,7 +143,6 @@ export const ServicesV2 = () => {
                             </ul>
                         </div>
 
-                        {/* Bottom Glow Line */}
                         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </motion.div>
                 ))}

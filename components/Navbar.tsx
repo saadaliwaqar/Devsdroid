@@ -27,8 +27,8 @@ export const Navbar = () => {
                 transition={{ duration: 0.5 }}
                 className={`rounded-2xl border max-w-7xl mx-auto flex items-center justify-between px-5 py-3 transition-all duration-500 ${
                     scrolled
-                        ? "border-white/10 bg-[#0B0F19]/90 backdrop-blur-xl shadow-lg shadow-black/20"
-                        : "border-white/5 bg-card/30 backdrop-blur-md"
+                        ? "border-white/10 bg-[#07090F]/85 backdrop-blur-xl shadow-lg shadow-black/30"
+                        : "border-white/5 bg-[#0C1019]/40 backdrop-blur-md"
                 }`}
             >
                 {/* LOGO */}
@@ -62,7 +62,7 @@ export const Navbar = () => {
                 <div className="hidden md:block">
                     <Link
                         href="/contact"
-                        className="px-6 py-2.5 bg-primary text-primary-foreground font-mono font-bold text-sm rounded-lg hover:bg-white hover:text-[#0B0F19] transition-all duration-300 flex items-center gap-2 glow-primary glow-primary-hover"
+                        className="px-6 py-2.5 bg-primary text-primary-foreground font-mono font-bold text-sm rounded-lg hover:bg-primary-strong transition-all duration-300 flex items-center gap-2 glow-primary glow-primary-hover"
                     >
                         {NAVBAR_CTA}
                     </Link>
@@ -86,7 +86,7 @@ export const Navbar = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -10, scale: 0.98 }}
                         transition={{ duration: 0.2 }}
-                        className="mt-2 bg-[#0B0F19]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl md:hidden flex flex-col gap-3 max-w-7xl mx-auto"
+                        className="mt-2 bg-[#07090F]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl md:hidden flex flex-col gap-3 max-w-7xl mx-auto"
                     >
                         {NAV_LINKS.map((item) => (
                             <Link
@@ -102,7 +102,7 @@ export const Navbar = () => {
                         <Link
                             href="/contact"
                             onClick={() => setIsOpen(false)}
-                            className="w-full text-center px-6 py-3 bg-primary text-primary-foreground font-mono font-bold rounded-lg hover:bg-white hover:text-[#0B0F19] transition-all"
+                            className="w-full text-center px-6 py-3 bg-primary text-primary-foreground font-mono font-bold rounded-lg hover:bg-primary-strong transition-all"
                         >
                             {NAVBAR_CTA}
                         </Link>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { plusJakartaSans, jetbrainsMono } from "./fonts";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "DevsDroid | Premium Software Development Agency",
