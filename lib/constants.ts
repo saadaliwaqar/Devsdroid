@@ -7,7 +7,7 @@ export const SITE = {
     ogImage: "/og-image.png",
     twitter: "@devsdroid",
     // External profiles for structured data (sameAs).
-    sameAs: ["https://www.fiverr.com/sellers/saadaliwaqar"],
+    sameAs: ["https://www.fiverr.com/s/akRm7Qp"],
 };
 
 export const NAVBAR_CTA = "Start_Project";
