@@ -6,6 +6,7 @@ import { AIAgentsShowcase } from "@/components/AIAgentsShowcase";
 import { ServicesV2 } from "@/components/ServicesV2";
 import { ProcessSection } from "@/components/ProcessSection";
 import { ProofSection } from "@/components/ProofSection";
+import { AppShowcase } from "@/components/AppShowcase";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FoundersNote } from "@/components/FoundersNote";
 import { ContactTerminal } from "@/components/ContactTerminal";
@@ -22,6 +23,7 @@ export default function Home() {
       <ServicesV2 />
       <ProcessSection />
       <ProofSection />
+      <AppShowcase />
       <TestimonialsSection />
       <FoundersNote />
       <ContactTerminal />
