@@ -124,9 +124,9 @@
   .display-xl {
     font-family: var(--font-sans);
     font-weight: 800;
-    font-size: clamp(3.25rem, 8.5vw, 7.5rem);
+    font-size: clamp(2.75rem, 8.5vw, 7.5rem);
     letter-spacing: -0.045em;
-    line-height: 0.9;
+    line-height: 0.92;
     text-wrap: balance;
   }
 

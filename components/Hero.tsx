@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { siReact, siPython, siTypescript, siDocker, siPostgresql, siNodedotjs } from "simple-icons";
 
-const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
+const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false, loading: () => <HeroFallback /> });
 
 const stats = [
     { value: "5.0★", label: "Fiverr Rating" },
@@ -51,9 +51,8 @@ export const Hero = () => {
     const [enable3D, setEnable3D] = useState(false);
 
     useEffect(() => {
-        const wide = window.matchMedia("(min-width: 640px)").matches;
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        setEnable3D(wide && !reduced);
+        setEnable3D(!reduced);
     }, []);
 
     return (

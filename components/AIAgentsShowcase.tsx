@@ -99,9 +99,9 @@ export const AIAgentsShowcase = () => {
                 >
                     <div className="max-w-3xl mx-auto surface rounded-2xl p-8">
                         <div className="eyebrow text-muted-foreground/70 mb-6 text-center">Agent Pipeline</div>
-                        <div className="flex items-center justify-between gap-2 md:gap-4">
+                        <div className="grid grid-cols-2 gap-6 sm:flex sm:items-center sm:justify-between sm:gap-4">
                             {workflowSteps.map((step, i) => (
-                                <div key={i} className="flex items-center gap-2 md:gap-4 flex-1">
+                                <div key={i} className="flex items-center justify-center gap-2 md:gap-4 sm:flex-1">
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         whileInView={{ scale: 1 }}

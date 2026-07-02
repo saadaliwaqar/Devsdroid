@@ -1,15 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Zap, Link2, Rocket, Sparkles, Users, ArrowRight } from "lucide-react";
 
-// Mirrors the 5 leaks 1:1, each pain sealed.
+// Mirrors the 5 leaks 1:1, each pain turned into an outcome.
 const outcomes = [
-    { gain: "Work that happens automatically", was: "manual busywork" },
-    { gain: "All your tools connected, one place to trust", was: "scattered data" },
-    { gain: "Fast, reliable launches", was: "shaky releases" },
-    { gain: "AI built in from day one", was: "no AI advantage" },
-    { gain: "Your best people freed for real work", was: "endless upkeep" },
+    {
+        icon: Zap,
+        gain: "Work that happens automatically",
+        was: "manual busywork",
+        benefit: "Routine tasks run themselves, so nothing waits on a person.",
+    },
+    {
+        icon: Link2,
+        gain: "All your tools, one source of truth",
+        was: "scattered data",
+        benefit: "Everything lives in one place your whole team can trust.",
+    },
+    {
+        icon: Rocket,
+        gain: "Fast, reliable launches",
+        was: "shaky releases",
+        benefit: "Ship updates with confidence, without things breaking.",
+    },
+    {
+        icon: Sparkles,
+        gain: "AI built in from day one",
+        was: "no AI advantage",
+        benefit: "AI works for you from the first release, not as an afterthought.",
+    },
+    {
+        icon: Users,
+        gain: "Your best people freed for real work",
+        was: "endless upkeep",
+        benefit: "Your team spends its time creating, not just keeping the lights on.",
+    },
 ];
 
 export const OutcomesSection = () => {
@@ -33,27 +59,56 @@ export const OutcomesSection = () => {
                     </p>
                 </div>
 
-                <div className="max-w-3xl mx-auto space-y-3">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {outcomes.map((o, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.08 }}
-                            className="group surface rounded-xl p-5 md:p-6 flex items-center gap-5 hover:border-primary/25 transition-colors"
+                            transition={{ delay: (i % 3) * 0.08 }}
+                            className="group surface hover-lift relative rounded-2xl p-6 overflow-hidden hover:border-primary/25 flex flex-col"
                         >
-                            <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                                <ArrowRight className="w-5 h-5 text-primary" />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <div className="text-lg md:text-xl font-bold text-foreground leading-tight">{o.gain}</div>
-                                <div className="mt-1 text-sm text-muted-foreground font-mono">
-                                    <span className="line-through decoration-foreground/20">{o.was}</span>
+                            <div className="flex items-start justify-between gap-3 mb-5">
+                                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <o.icon className="w-5 h-5 text-primary" />
                                 </div>
+                                <span className="flex flex-col items-end text-right">
+                                    <span className="text-[0.6rem] font-mono uppercase tracking-widest text-muted-foreground/60">Before</span>
+                                    <span className="text-xs font-mono text-muted-foreground/80 line-through decoration-foreground/25">{o.was}</span>
+                                </span>
                             </div>
+
+                            <h3 className="text-lg font-bold text-foreground leading-snug">{o.gain}</h3>
+                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{o.benefit}</p>
+
+                            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                     ))}
+
+                    {/* Conversion card rounds out the grid */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.16 }}
+                        className="relative rounded-2xl p-6 overflow-hidden border border-primary/30 bg-primary/[0.06] flex flex-col justify-center"
+                    >
+                        <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/15 rounded-full blur-[50px] pointer-events-none" />
+                        <h3 className="text-lg font-bold text-foreground leading-snug relative z-10">
+                            Ready to turn these into your reality?
+                        </h3>
+                        <p className="mt-2 text-sm text-muted-foreground relative z-10">
+                            We map exactly where AI and automation pay off for your business.
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="group mt-5 inline-flex items-center gap-2 text-sm font-mono font-bold text-primary hover:text-primary-strong transition-colors relative z-10"
+                        >
+                            Book_My_Audit
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </motion.div>
                 </div>
             </div>
         </section>
