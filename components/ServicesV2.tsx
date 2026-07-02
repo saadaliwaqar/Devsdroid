@@ -7,61 +7,61 @@ const services = [
     {
         title: "AI & Generative AI",
         icon: BrainCircuit,
-        description: "Architecting intelligent systems that think, adapt, and scale.",
+        description: "Smart AI systems that learn your business and grow with it.",
         gradient: "from-emerald-500/20 to-primary/5",
         features: [
-            "Custom LLM fine-tuning & hosting (Llama 3, Mistral, Phi-3)",
-            "Advanced RAG pipelines with private data integration",
-            "LangChain / LlamaIndex multi-agent systems",
-            "Vercel AI SDK, OpenAI Assistants, & Tool-calling",
-            "Prompt engineering & LLM evals (RAGAS, DeepEval)",
-            "Vector DBs: Pinecone, Weaviate, Chroma, Qdrant",
-            "Fine-tuning: LoRA/QLoRA, Unsloth, Axolotl, vLLM",
+            "AI trained on your own data",
+            "AI that answers questions using your documents",
+            "Teams of AI assistants that work together",
+            "AI features built right into your apps",
+            "Answers you can trust, tested for accuracy",
+            "Private and secure: your data stays yours",
+            "Runs fast, priced to fit your budget",
         ],
     },
     {
         title: "AI Agents & Automation",
         icon: Bot,
-        description: "Autonomous agents and workflow automation that run your business on autopilot.",
+        description: "AI assistants that run your busywork on autopilot, day and night.",
         gradient: "from-blue-500/20 to-cyan-500/5",
         features: [
-            "Autonomous agents (LangGraph, CrewAI, AutoGen)",
-            "Multi-agent orchestration & task delegation",
-            "Workflow automation (n8n, Zapier, custom pipelines)",
-            "Intelligent chatbots with RAG & tool-calling",
-            "Business process automation & ETL pipelines",
-            "Real-time data processing & event-driven systems",
-            "Custom API integrations & webhook orchestration",
+            "AI assistants that handle repetitive work on their own",
+            "Teams of AI assistants that work together to finish tasks",
+            "Connect your tools so work happens automatically",
+            "Chatbots that actually know your business and can take action",
+            "Turn slow manual processes into hands-off ones",
+            "Data updated the moment something changes",
+            "All your apps working together, no manual effort",
         ],
     },
     {
         title: "Full-Stack Web & Mobile",
         icon: AppWindow,
-        description: "High-performance applications built for speed and SEO dominance.",
+        description: "Fast, reliable web and mobile apps that rank high on Google.",
         gradient: "from-violet-500/20 to-purple-500/5",
         features: [
-            "Next.js 14+ (App Router, Server Actions)",
-            "React + TypeScript + Tailwind CSS",
-            "Node.js • NestJS • Express • Python/FastAPI",
-            "React Native & Flutter Cross-platform",
-            "SaaS, Dashboards, CRM, & E-commerce",
-            "Real-time functionality & WebSockets",
-            "Cloud deployment: AWS, GCP, Vercel",
+            "Fast, reliable web apps",
+            "Works perfectly on every device",
+            "Built to handle growth as you scale",
+            "One app for both iPhone and Android",
+            "Online stores, dashboards, and customer portals",
+            "Live updates without refreshing the page",
+            "Launched on trusted, secure cloud hosting",
         ],
     },
     {
         title: "UI/UX & Product Design",
         icon: Palette,
-        description: "Crafting pixel-perfect experiences that drive user engagement.",
+        description: "Beautiful, easy-to-use designs that keep customers coming back.",
         gradient: "from-amber-500/20 to-orange-500/5",
         features: [
-            "Figma – Collaborative Interface Design & Prototyping",
-            "Design Systems & Component Libraries",
-            "User Research, Wireframing & User Flows",
-            "Interactive Prototypes (Framer, Protopie)",
-            "Responsive Web & Mobile App Design",
-            "Brand Identity & Visual Language",
-            "Micro-animations & Motion Design",
+            "Clean, polished designs your customers love",
+            "A consistent look across your whole product",
+            "Designs shaped by real user feedback",
+            "Clickable previews before we build a thing",
+            "Looks great on phones, tablets, and desktops",
+            "A brand identity that stands out",
+            "Smooth, delightful animations",
         ],
     },
 ];
@@ -90,16 +90,16 @@ export const ServicesV2 = () => {
                     transition={{ delay: 0.1 }}
                     className="display text-4xl md:text-5xl lg:text-6xl"
                 >
-                    What We <span className="text-primary">Build</span>
+                    What We <span className="em-serif text-primary">Build</span>
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="mt-6 text-slate-400 text-lg"
+                    className="mt-6 text-muted-foreground text-lg"
                 >
-                    Versatile stacks. Specialized expertise. One cohesive team.
+                    Wide-ranging skills. Deep expertise. One dedicated team.
                 </motion.p>
             </div>
 
@@ -117,13 +117,13 @@ export const ServicesV2 = () => {
 
                         {/* Header */}
                         <div className="p-8 pb-4 relative z-10">
-                            <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 mb-6 group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
-                                <service.icon className="w-7 h-7 text-slate-400 group-hover:text-primary transition-colors" />
+                            <div className="w-14 h-14 bg-foreground/5 rounded-xl flex items-center justify-center border border-foreground/10 mb-6 group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
+                                <service.icon className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors" />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">
+                            <h3 className="text-2xl font-bold text-foreground mb-2">
                                 {service.title}
                             </h3>
-                            <p className="text-slate-400 text-sm leading-relaxed min-h-[40px]">
+                            <p className="text-muted-foreground text-sm leading-relaxed min-h-[40px]">
                                 {service.description}
                             </p>
                         </div>
@@ -133,9 +133,9 @@ export const ServicesV2 = () => {
                             <div className="rule mb-6" />
                             <ul className="space-y-3">
                                 {service.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
+                                    <li key={i} className="flex items-start gap-3 text-sm text-foreground/80">
                                         <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-                                        <span className="leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors">
+                                        <span className="leading-relaxed text-muted-foreground group-hover:text-foreground/80 transition-colors">
                                             {feature}
                                         </span>
                                     </li>

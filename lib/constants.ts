@@ -16,8 +16,8 @@ export const NAV_LINKS = [
 ];
 
 export const HERO_CONTENT = {
-    headline: "Your Vision. Developed to Scale.",
-    subheadline: "A unified team of elite developers building scalable software, AI-powered agents, and automation systems.",
+    headline: "Software That Grows With You.",
+    subheadline: "One expert team building the apps, AI assistants, and automations that save you time and help your business grow.",
     ctaPrimary: "Deploy_Vision",
     ctaSecondary: "// View_Services",
 };
@@ -38,5 +38,5 @@ export const FOOTER_INFO = {
         email: "hello@devsdroid.com",
         phone: "+92 3154 521 099",
     },
-    copyright: "2025 - DevsDroid",
+    copyright: "2026 - DevsDroid",
 };

@@ -7,7 +7,7 @@ import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
     return (
-        <footer className="relative w-full border-t border-white/5 bg-[#090C13] pt-16 pb-8">
+        <footer className="relative w-full border-t border-foreground/5 bg-muted pt-16 pb-8">
             {/* Top Gradient */}
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
@@ -18,16 +18,24 @@ export function Footer() {
                         <Link href="/" className="inline-block">
                             <div className="relative w-[80px] h-12">
                                 <Image
+                                    src="/logo-devsdroid-light.png"
+                                    alt="DevsDroid Logo"
+                                    fill
+                                    sizes="80px"
+                                    className="object-contain object-left dark:hidden"
+                                />
+                                <Image
                                     src="/logo-devsdroid.png"
                                     alt="DevsDroid Logo"
                                     fill
                                     sizes="80px"
-                                    className="object-contain object-left"
+                                    className="object-contain object-left hidden dark:block"
                                 />
                             </div>
+
                         </Link>
-                        <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
-                            Your strategic partner for scalable software solutions, AI agents, and automation systems.
+                        <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                            We build the software, AI assistants, and automation that help your business run faster and grow.
                         </p>
                     </div>
 
@@ -45,7 +53,7 @@ export function Footer() {
                                 <Link
                                     key={link.label}
                                     href={link.href}
-                                    className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1 group"
+                                    className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
                                 >
                                     {link.label}
                                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
@@ -61,14 +69,14 @@ export function Footer() {
                         </h3>
                         <div className="flex flex-col gap-3">
                             {[
-                                "AI & Generative AI",
-                                "AI Agents & Automation",
-                                "Full-Stack Development",
+                                "Custom AI for Your Business",
+                                "AI Assistants & Automation",
+                                "Web & Mobile Apps",
                                 "UI/UX Design",
                             ].map((service) => (
                                 <span
                                     key={service}
-                                    className="text-sm text-slate-400"
+                                    className="text-sm text-muted-foreground"
                                 >
                                     {service}
                                 </span>
@@ -84,14 +92,14 @@ export function Footer() {
                         <div className="space-y-4">
                             <a
                                 href={`mailto:${FOOTER_INFO.contact.email}`}
-                                className="flex items-center gap-3 text-sm text-slate-400 hover:text-primary transition-colors"
+                                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                             >
                                 <Mail className="w-4 h-4 shrink-0" />
                                 {FOOTER_INFO.contact.email}
                             </a>
                             <a
                                 href={`tel:${FOOTER_INFO.contact.phone.replace(/ /g, "")}`}
-                                className="flex items-center gap-3 text-sm text-slate-400 hover:text-primary transition-colors"
+                                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                             >
                                 <Phone className="w-4 h-4 shrink-0" />
                                 {FOOTER_INFO.contact.phone}
@@ -101,12 +109,12 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-white/5 pt-8">
+                <div className="border-t border-foreground/5 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-xs text-slate-600 font-mono">
+                        <p className="text-xs text-muted-foreground/60 font-mono">
                             &copy; {FOOTER_INFO.copyright}. All rights reserved.
                         </p>
-                        <div className="flex gap-6 text-xs text-slate-600">
+                        <div className="flex gap-6 text-xs text-muted-foreground/60">
                             <span>Privacy Policy</span>
                             <span>Terms of Service</span>
                         </div>

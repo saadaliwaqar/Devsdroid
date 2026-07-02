@@ -92,16 +92,16 @@ export default function ContactPage() {
                         className="display text-5xl md:text-7xl lg:text-8xl"
                     >
                         Let&apos;s{" "}
-                        <span className="text-primary text-glow">Connect</span>
+                        <span className="em-serif text-primary text-glow">Connect</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="mt-8 text-xl text-slate-300 max-w-2xl mx-auto"
+                        className="mt-8 text-xl text-foreground/80 max-w-2xl mx-auto"
                     >
-                        Ready to build your next project? Initialize a connection and our team will respond within 24 hours.
+                        Have a project in mind? Tell us about it and our team replies within 24 hours.
                     </motion.p>
                 </div>
             </section>
@@ -124,7 +124,7 @@ export default function ContactPage() {
                         },
                         {
                             icon: MapPin,
-                            title: "Offices",
+                            title: "Where We Are",
                             value: "Lahore, PK & London, UK",
                             href: null,
                         },
@@ -142,11 +142,11 @@ export default function ContactPage() {
                             </div>
                             <div className="eyebrow mb-2">{info.title}</div>
                             {info.href ? (
-                                <a href={info.href} className="text-sm text-slate-300 hover:text-white transition-colors">
+                                <a href={info.href} className="text-sm text-foreground/80 hover:text-foreground transition-colors">
                                     {info.value}
                                 </a>
                             ) : (
-                                <span className="text-sm text-slate-300">{info.value}</span>
+                                <span className="text-sm text-foreground/80">{info.value}</span>
                             )}
                         </motion.div>
                     ))}
@@ -158,15 +158,15 @@ export default function ContactPage() {
                 <div className="max-w-3xl mx-auto">
                     <div className="surface rounded-2xl overflow-hidden shadow-2xl min-h-[420px] flex flex-col">
                         {/* Terminal Header */}
-                        <div className="bg-white/[0.03] px-4 py-3 flex items-center gap-2 border-b border-white/5">
+                        <div className="bg-foreground/[0.03] px-4 py-3 flex items-center gap-2 border-b border-foreground/5">
                             <div className="flex gap-1.5">
                                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                                 <div className="w-3 h-3 rounded-full bg-amber-500/60" />
                                 <div className="w-3 h-3 rounded-full bg-green-500/60" />
                             </div>
                             <div className="ml-3 flex items-center gap-2">
-                                <Terminal className="w-3.5 h-3.5 text-slate-500" />
-                                <span className="text-xs font-mono text-slate-500">contact-shell — devsdroid</span>
+                                <Terminal className="w-3.5 h-3.5 text-muted-foreground" />
+                                <span className="text-xs font-mono text-muted-foreground">contact-shell : devsdroid</span>
                             </div>
                         </div>
 
@@ -180,7 +180,7 @@ export default function ContactPage() {
                                     className="space-y-6"
                                 >
                                     <div className="space-y-2">
-                                        <label htmlFor="c-name" className="flex items-center gap-2 text-sm font-mono text-slate-300">
+                                        <label htmlFor="c-name" className="flex items-center gap-2 text-sm font-mono text-foreground/80">
                                             <span className="text-primary">~$</span> Full name
                                         </label>
                                         <input
@@ -188,14 +188,14 @@ export default function ContactPage() {
                                             type="text"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-600 transition-colors"
+                                            className="w-full bg-transparent border-b border-foreground/10 focus:border-primary outline-none py-2 text-foreground font-medium placeholder:text-muted-foreground/60 transition-colors"
                                             placeholder="Your name"
                                             required
                                         />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="c-email" className="flex items-center gap-2 text-sm font-mono text-slate-300">
+                                        <label htmlFor="c-email" className="flex items-center gap-2 text-sm font-mono text-foreground/80">
                                             <span className="text-primary">~$</span> Work email
                                         </label>
                                         <input
@@ -203,23 +203,23 @@ export default function ContactPage() {
                                             type="email"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-600 transition-colors"
+                                            className="w-full bg-transparent border-b border-foreground/10 focus:border-primary outline-none py-2 text-foreground font-medium placeholder:text-muted-foreground/60 transition-colors"
                                             placeholder="you@company.com"
                                             required
                                         />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="c-scope" className="flex items-center gap-2 text-sm font-mono text-slate-300">
-                                            <span className="text-primary">~$</span> Project scope
+                                        <label htmlFor="c-scope" className="flex items-center gap-2 text-sm font-mono text-foreground/80">
+                                            <span className="text-primary">~$</span> What you need
                                         </label>
                                         <textarea
                                             id="c-scope"
                                             rows={4}
                                             value={formData.scope}
                                             onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                                            className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none py-2 text-white font-medium placeholder-slate-600 transition-colors resize-none"
-                                            placeholder="Tell us about your project..."
+                                            className="w-full bg-transparent border-b border-foreground/10 focus:border-primary outline-none py-2 text-foreground font-medium placeholder:text-muted-foreground/60 transition-colors resize-none"
+                                            placeholder="Tell us what you want to build or fix..."
                                             required
                                         />
                                     </div>
@@ -264,9 +264,9 @@ export default function ContactPage() {
                                             animate={{ opacity: 1, y: 0 }}
                                             className="mt-8 p-6 border border-primary/20 bg-primary/5 rounded-xl text-center"
                                         >
-                                            <h3 className="text-xl font-bold text-white mb-2">Transmission Complete</h3>
-                                            <p className="text-slate-400 mb-4">Your parameters have been received. Our team will respond within 24 hours.</p>
-                                            <p className="text-xs text-slate-600 font-mono">SESSION_TERMINATED. RELOAD TO RESET.</p>
+                                            <h3 className="text-xl font-bold text-foreground mb-2">Message Sent</h3>
+                                            <p className="text-muted-foreground mb-4">Got it. Our team will get back to you within 24 hours.</p>
+                                            <p className="text-xs text-muted-foreground/60 font-mono">SESSION_TERMINATED. RELOAD TO RESET.</p>
                                         </motion.div>
                                     )}
                                 </div>

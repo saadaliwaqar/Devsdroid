@@ -9,28 +9,28 @@ const agentCapabilities = [
     {
         icon: Bot,
         title: "Autonomous AI Agents",
-        description: "Self-directed agents that reason, plan, and execute complex multi-step tasks using LangGraph, CrewAI, and AutoGen.",
+        description: "AI assistants that handle repetitive work on their own. They plan the steps, get it done, and free up your team.",
         tags: ["LangGraph", "CrewAI", "AutoGen", "OpenClaw", "Hermes"],
         color: "from-primary/20 to-emerald-500/10",
     },
     {
         icon: Workflow,
         title: "Workflow Automation",
-        description: "End-to-end business process automation. From data ingestion to decision-making — fully autonomous pipelines.",
+        description: "Connect your tools so work happens automatically. Fewer manual steps, fewer errors, more time back.",
         tags: ["n8n", "Zapier", "Custom APIs"],
         color: "from-blue-500/20 to-cyan-500/10",
     },
     {
         icon: MessageSquare,
         title: "Intelligent Chatbots",
-        description: "Context-aware conversational agents with RAG, tool-calling, and memory for customer support, sales, and ops.",
+        description: "Chatbots that actually know your business and can take action. Ready to help with support, sales, and daily ops.",
         tags: ["RAG", "OpenAI", "Vercel AI SDK"],
         color: "from-violet-500/20 to-purple-500/10",
     },
     {
         icon: Database,
         title: "Data Pipelines & ETL",
-        description: "Automated data processing with vector embeddings, real-time sync, and intelligent data routing.",
+        description: "Move data between your apps without manual effort. Always in sync, always up to date, always accurate.",
         tags: ["Pinecone", "Weaviate", "Supabase"],
         color: "from-amber-500/20 to-orange-500/10",
     },
@@ -47,7 +47,7 @@ export const AIAgentsShowcase = () => {
     const [activeCard, setActiveCard] = useState(0);
 
     return (
-        <section className="py-24 md:py-32 relative overflow-hidden bg-[#090C13] border-y border-white/5">
+        <section className="py-24 md:py-32 relative overflow-hidden bg-muted border-y border-foreground/5">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[150px]" />
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[150px]" />
@@ -74,7 +74,7 @@ export const AIAgentsShowcase = () => {
                         className="display text-4xl md:text-5xl lg:text-6xl"
                     >
                         AI Agents &amp;{" "}
-                        <span className="text-primary text-glow">Automation</span>
+                        <span className="em-serif text-primary text-glow">Automation</span>
                     </motion.h2>
 
                     <motion.p
@@ -82,10 +82,10 @@ export const AIAgentsShowcase = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="mt-6 text-slate-400 text-lg max-w-2xl mx-auto"
+                        className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto"
                     >
-                        Deploy intelligent agents that think, decide, and act autonomously.
-                        We build AI systems that automate your most complex workflows.
+                        Put AI to work on the tasks that slow your team down.
+                        We build assistants that run your busywork so you can focus on growth.
                     </motion.p>
                 </div>
 
@@ -113,7 +113,7 @@ export const AIAgentsShowcase = () => {
                                             <step.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                                         </div>
                                         <div className="text-center">
-                                            <div className="text-xs md:text-sm font-bold text-white">{step.label}</div>
+                                            <div className="text-xs md:text-sm font-bold text-foreground">{step.label}</div>
                                             <div className="text-[10px] md:text-xs text-muted-foreground font-mono">{step.sublabel}</div>
                                         </div>
                                     </motion.div>
@@ -147,21 +147,21 @@ export const AIAgentsShowcase = () => {
                             className={`group surface hover-lift relative rounded-2xl p-8 overflow-hidden cursor-default ${
                                 activeCard === idx
                                     ? "border-primary/30 shadow-[0_0_40px_-12px_rgba(124,226,63,0.25)]"
-                                    : "hover:border-white/15"
+                                    : "hover:border-foreground/15"
                             }`}
                         >
                             <div className={`absolute inset-0 bg-gradient-to-br ${cap.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                             <div className="relative z-10">
                                 <div className="flex items-start gap-4 mb-4">
-                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/30 group-hover:bg-primary/10 transition-all duration-300 shrink-0">
-                                        <cap.icon className="w-6 h-6 text-slate-400 group-hover:text-primary transition-colors" />
+                                    <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center group-hover:border-primary/30 group-hover:bg-primary/10 transition-all duration-300 shrink-0">
+                                        <cap.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-bold text-white mb-1.5">
+                                        <h3 className="text-xl font-bold text-foreground mb-1.5">
                                             {cap.title}
                                         </h3>
-                                        <p className="text-slate-400 text-sm leading-relaxed">
+                                        <p className="text-muted-foreground text-sm leading-relaxed">
                                             {cap.description}
                                         </p>
                                     </div>
@@ -171,7 +171,7 @@ export const AIAgentsShowcase = () => {
                                     {cap.tags.map((tag, i) => (
                                         <span
                                             key={i}
-                                            className="px-3 py-1 text-xs font-mono bg-white/5 border border-white/10 rounded-full text-slate-400 group-hover:border-primary/20 group-hover:text-slate-300 transition-all"
+                                            className="px-3 py-1 text-xs font-mono bg-foreground/5 border border-foreground/10 rounded-full text-muted-foreground group-hover:border-primary/20 group-hover:text-foreground/80 transition-all"
                                         >
                                             {tag}
                                         </span>

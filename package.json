@@ -14,6 +14,8 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
     "@sanity/image-url": "^2.0.2",
     "@sanity/vision": "^5.0.1",
     "@vercel/blob": "^2.0.0",
@@ -27,9 +29,11 @@
     "react": "^19.0.0-rc-66855b96-20241106",
     "react-dom": "^19.0.0-rc-66855b96-20241106",
     "sanity": "^5.0.1",
+    "simple-icons": "^16.24.1",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

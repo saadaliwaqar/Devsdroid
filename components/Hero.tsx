@@ -3,36 +3,57 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
+import { siReact, siPython, siTypescript, siDocker, siPostgresql, siNodedotjs } from "simple-icons";
 
-const terminalLines = [
-    { text: "> Initializing_Core...", delay: 0 },
-    { text: "> Stack: React + Python + AI...", delay: 0.5 },
-    { text: "> Loading_Agents: CrewAI, LangGraph...", delay: 1.0 },
-    { text: "> Deploying_Automation_Pipeline...", delay: 1.5 },
-    { text: "> Status: Ready.", delay: 2.0 },
-];
+const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
 const stats = [
-    { value: "50+", label: "Projects" },
-    { value: "30+", label: "AI Agents" },
-    { value: "95%", label: "Retention" },
+    { value: "5.0★", label: "Fiverr Rating" },
+    { value: "32", label: "Client Reviews" },
+    { value: "1hr", label: "Avg Response" },
 ];
 
+// Static logo cluster, shown on mobile / reduced-motion / while WebGL loads.
+const FALLBACK = [
+    { icon: siReact, x: 120, y: 120 },
+    { icon: siPython, x: 300, y: 100 },
+    { icon: siTypescript, x: 230, y: 230 },
+    { icon: siNodedotjs, x: 90, y: 280 },
+    { icon: siDocker, x: 340, y: 300 },
+    { icon: siPostgresql, x: 190, y: 360 },
+];
+const FALLBACK_EDGES = [[0, 2], [1, 2], [2, 3], [2, 4], [3, 5], [4, 5]];
+
+function HeroFallback() {
+    return (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="absolute w-72 h-72 rounded-full bg-primary/15 blur-[90px]" />
+            <svg viewBox="0 0 440 460" className="w-full h-full max-w-[480px]">
+                <g className="stroke-primary/25" strokeWidth="1" fill="none">
+                    {FALLBACK_EDGES.map(([a, b], i) => (
+                        <line key={i} x1={FALLBACK[a].x} y1={FALLBACK[a].y} x2={FALLBACK[b].x} y2={FALLBACK[b].y} />
+                    ))}
+                </g>
+                {FALLBACK.map(({ icon, x, y }, i) => (
+                    <g key={i} transform={`translate(${x - 18} ${y - 18}) scale(1.5)`}>
+                        <circle cx="12" cy="12" r="18" className="fill-primary/10" />
+                        <path d={icon.path} className="fill-foreground/70" />
+                    </g>
+                ))}
+            </svg>
+        </div>
+    );
+}
+
 export const Hero = () => {
-    const [visibleLines, setVisibleLines] = useState(0);
+    const [enable3D, setEnable3D] = useState(false);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setVisibleLines((prev) => {
-                if (prev >= terminalLines.length) {
-                    clearInterval(timer);
-                    return prev;
-                }
-                return prev + 1;
-            });
-        }, 600);
-        return () => clearInterval(timer);
+        const wide = window.matchMedia("(min-width: 640px)").matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        setEnable3D(wide && !reduced);
     }, []);
 
     return (
@@ -40,47 +61,39 @@ export const Hero = () => {
             {/* Background */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute inset-0 bg-grid opacity-50" />
-                <div className="absolute top-[-10%] right-[-5%] w-[620px] h-[620px] bg-primary/12 rounded-full blur-[160px] animate-pulse-glow" />
+                <div className="absolute top-[-10%] right-[-5%] w-[640px] h-[640px] bg-primary/12 rounded-full blur-[170px] animate-pulse-glow" />
                 <div className="absolute bottom-[-15%] left-[-10%] w-[460px] h-[460px] bg-secondary/25 rounded-full blur-[150px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-                {/* Vignette / fade to background */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--color-background)_95%)]" />
                 <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-background to-transparent" />
             </div>
 
-            <div className="container mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-12 items-center">
-                {/* TEXT CONTENT */}
+            <div className="container mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-8 items-center">
+                {/* TEXT */}
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="relative z-10"
+                    className="relative z-10 order-2 lg:order-1"
                 >
                     <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-primary/25 bg-primary/[0.07] backdrop-blur-sm mb-8">
                         <span className="relative flex h-2 w-2">
                             <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-70 animate-ping" />
                             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                         </span>
-                        <span className="eyebrow !text-primary/90">System_Online</span>
+                        <span className="eyebrow !text-primary/90">AI Engineering Studio</span>
                     </div>
 
-                    <h1 className="display text-[3.25rem] leading-[0.95] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-                        <span className="block text-white">Your Vision.</span>
-                        <span className="block text-white/90">Developed to</span>
-                        <span className="block">
-                            <span className="text-primary text-glow">Scale.</span>
-                            <motion.span
-                                animate={{ opacity: [1, 0] }}
-                                transition={{ repeat: Infinity, duration: 0.8 }}
-                                className="text-primary inline-block ml-2 align-baseline"
-                            >
-                                _
-                            </motion.span>
+                    <h1 className="display-xl">
+                        <span className="block text-foreground">Your Vision.</span>
+                        <span className="block text-foreground/90">
+                            Developed to{" "}
+                            <span className="em-serif text-primary text-glow">Scale.</span>
                         </span>
                     </h1>
 
-                    <p className="mt-7 text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed">
-                        Elite developers &amp; AI engineers building scalable software,
-                        intelligent agents, and automation pipelines that transform businesses.
+                    <p className="mt-8 text-lg md:text-xl text-foreground/75 max-w-xl leading-relaxed">
+                        We build software, AI assistants, and automation that
+                        save your team time and help your business grow.
                     </p>
 
                     <div className="mt-9 flex flex-wrap gap-4">
@@ -93,13 +106,12 @@ export const Hero = () => {
                         </Link>
                         <Link
                             href="/services"
-                            className="inline-flex items-center px-7 py-3.5 border border-white/15 text-white font-mono font-bold rounded-xl hover:bg-white/[0.06] hover:border-white/30 transition-all duration-300"
+                            className="inline-flex items-center px-7 py-3.5 border border-foreground/15 text-foreground font-mono font-bold rounded-xl hover:bg-foreground/[0.06] hover:border-foreground/30 transition-all duration-300"
                         >
                             {"// View_Services"}
                         </Link>
                     </div>
 
-                    {/* Stats */}
                     <div className="mt-12 flex items-stretch gap-6 md:gap-10">
                         {stats.map((stat, i) => (
                             <motion.div
@@ -109,77 +121,24 @@ export const Hero = () => {
                                 transition={{ delay: 0.7 + i * 0.12 }}
                                 className="flex flex-col"
                             >
-                                <span className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">{stat.value}</span>
+                                <span className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">{stat.value}</span>
                                 <span className="mt-1 text-[0.7rem] text-muted-foreground font-mono uppercase tracking-[0.18em]">{stat.label}</span>
                             </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
-                {/* TERMINAL PANEL */}
+                {/* 3D SCENE */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.96, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" }}
-                    className="relative z-10 hidden sm:block"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                    className="relative z-10 order-1 lg:order-2 h-[340px] sm:h-[460px] lg:h-[620px]"
                 >
-                    {/* Gradient ring wrapper */}
-                    <div className="relative rounded-2xl p-px bg-gradient-to-b from-white/15 via-white/5 to-transparent">
-                        <div className="absolute -inset-6 -z-10 bg-primary/15 blur-[90px] rounded-full" />
-                        <div className="relative rounded-2xl bg-[#0A0D15]/95 backdrop-blur-xl overflow-hidden">
-                            {/* Terminal Header */}
-                            <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/5">
-                                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                                <div className="w-3 h-3 rounded-full bg-amber-500/60" />
-                                <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                                <div className="ml-auto text-xs font-mono text-slate-500">
-                                    devsdroid — init
-                                </div>
-                            </div>
-
-                            {/* Terminal Body */}
-                            <div className="p-6 md:p-7 font-mono text-sm md:text-[0.95rem] space-y-3 min-h-[280px]">
-                                {terminalLines.slice(0, visibleLines).map((line, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, x: -10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className={
-                                            line.text.includes("Ready")
-                                                ? "text-primary font-bold"
-                                                : "text-slate-300"
-                                        }
-                                    >
-                                        {line.text}
-                                    </motion.div>
-                                ))}
-                                {visibleLines < terminalLines.length && (
-                                    <motion.div
-                                        animate={{ opacity: [1, 0] }}
-                                        transition={{ repeat: Infinity, duration: 0.6 }}
-                                        className="w-2.5 h-5 bg-primary inline-block"
-                                    />
-                                )}
-                                {visibleLines >= terminalLines.length && (
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="text-slate-500 pt-1"
-                                    >
-                                        <span className="text-slate-400">{">"}</span>{" "}
-                                        <span className="animate-pulse">_</span>
-                                    </motion.div>
-                                )}
-                            </div>
-                        </div>
+                    <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
+                        <div className="w-[440px] h-[440px] bg-primary/12 rounded-full blur-[120px]" />
                     </div>
-
-                    {/* Floating accent frames */}
-                    <div className="absolute inset-0 -z-10 pointer-events-none">
-                        <div className="absolute -top-6 -right-6 w-28 h-28 border border-primary/15 rounded-2xl rotate-12 animate-float opacity-40" />
-                        <div className="absolute -bottom-8 -left-8 w-20 h-20 border border-white/10 rounded-full animate-float-delayed opacity-30" />
-                    </div>
+                    {enable3D ? <HeroScene /> : <HeroFallback />}
                 </motion.div>
             </div>
         </section>

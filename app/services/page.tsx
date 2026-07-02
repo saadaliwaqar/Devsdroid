@@ -9,64 +9,64 @@ const SERVICES = [
     {
         id: "ai-generative",
         title: "AI & Generative AI",
-        subtitle: "Intelligent Systems That Scale",
-        description: "We architect custom AI solutions — from LLM fine-tuning and RAG pipelines to multi-agent systems. Whether it's a private GPT, an AI-powered search engine, or a generative content platform, we build the intelligence layer for your product.",
+        subtitle: "AI That Grows With Your Business",
+        description: "We build custom AI trained on your own data. A private assistant, a smart search tool, or a content engine: we give your product real intelligence, and it stays yours.",
         icon: BrainCircuit,
         features: [
-            "Custom LLM fine-tuning & hosting (Llama 3, Mistral, Phi-3)",
-            "Advanced RAG pipelines with private data integration",
-            "LangChain / LlamaIndex multi-agent systems",
-            "Vercel AI SDK, OpenAI Assistants, & Tool-calling",
-            "Prompt engineering & LLM evals (RAGAS, DeepEval)",
-            "Vector DBs: Pinecone, Weaviate, Chroma, Qdrant",
+            "AI trained on your business, running privately and securely",
+            "Answers questions using your own documents",
+            "Teams of AI assistants that work together",
+            "Assistants that can take real actions, not just chat",
+            "Tested for accuracy before it ever reaches your customers",
+            "Your data stays private and under your control",
         ],
         gradient: "from-emerald-500/20 to-primary/5",
     },
     {
         id: "ai-agents",
         title: "AI Agents & Automation",
-        subtitle: "Autonomous Workflows, Zero Manual Effort",
-        description: "Deploy intelligent agents that reason, plan, and execute complex tasks autonomously. We build multi-agent systems, workflow automation pipelines, and AI-powered chatbots that transform how your business operates.",
+        subtitle: "Repetitive Work, Handled Automatically",
+        description: "We build AI assistants that handle repetitive work on their own. They plan, decide, and get the job done, so your team stops doing busywork and your business runs faster.",
         icon: Bot,
         features: [
-            "Autonomous agents (LangGraph, CrewAI, AutoGen)",
-            "Multi-agent orchestration & task delegation",
-            "Workflow automation (n8n, Zapier, custom pipelines)",
-            "Intelligent chatbots with RAG & tool-calling",
-            "Business process automation & ETL pipelines",
-            "Custom API integrations & webhook orchestration",
+            "AI assistants that handle repetitive work on their own",
+            "Teams of AI assistants that split up tasks and work together",
+            "Connect your tools so work happens automatically",
+            "Chatbots that actually know your business and can take action",
+            "Move data between your apps without manual effort",
+            "Every tool you use, working together in one flow",
         ],
         gradient: "from-blue-500/20 to-cyan-500/5",
     },
     {
         id: "web-mobile",
         title: "Full-Stack Web & Mobile",
-        subtitle: "High-Performance Apps Built for Scale",
-        description: "From SaaS platforms to mobile apps, we build production-grade applications using modern frameworks. Server-rendered, SEO-optimized, and blazing fast — with real-time features and cloud-native architecture.",
+        subtitle: "Fast, Reliable Apps Built to Grow",
+        description: "From web platforms to mobile apps, we build software your customers love to use. Fast, reliable, easy to find on Google, and ready to handle growth from day one.",
         icon: AppWindow,
         features: [
-            "Next.js 14+ (App Router, Server Actions)",
-            "React + TypeScript + Tailwind CSS",
-            "Node.js • NestJS • Express • Python/FastAPI",
-            "React Native & Flutter Cross-platform",
-            "SaaS, Dashboards, CRM, & E-commerce",
-            "Cloud deployment: AWS, GCP, Vercel",
+            "Fast, reliable web and mobile apps",
+            "Built to load quickly and rank well on Google",
+            "Works smoothly on every device and screen size",
+            "One app that runs on both iPhone and Android",
+            "Online stores, dashboards, customer tools, and more",
+            "Built to handle growth as your business scales",
         ],
         gradient: "from-violet-500/20 to-purple-500/5",
     },
     {
         id: "design",
         title: "UI/UX & Product Design",
-        subtitle: "Pixel-Perfect Experiences That Convert",
-        description: "We design intuitive interfaces and full design systems that drive user engagement. From wireframes to interactive prototypes, our design process is research-driven, collaborative, and obsessed with detail.",
+        subtitle: "Designs That Turn Visitors Into Customers",
+        description: "We design clean, easy-to-use products your customers enjoy. Every screen is planned around real people, backed by research, and polished down to the smallest detail.",
         icon: Palette,
         features: [
-            "Figma – Collaborative Interface Design & Prototyping",
-            "Design Systems & Component Libraries",
-            "User Research, Wireframing & User Flows",
-            "Interactive Prototypes (Framer, Protopie)",
-            "Responsive Web & Mobile App Design",
-            "Brand Identity & Visual Language",
+            "Clean, easy-to-use designs people love",
+            "A consistent look across your whole product",
+            "Design decisions backed by real user research",
+            "Clickable previews so you see it before we build it",
+            "Looks great on web, tablet, and mobile",
+            "A brand and visual style that feels like you",
         ],
         gradient: "from-amber-500/20 to-orange-500/5",
     },
@@ -102,16 +102,16 @@ export default function ServicesPage() {
                         className="display text-5xl md:text-7xl lg:text-8xl max-w-4xl mx-auto"
                     >
                         What We{" "}
-                        <span className="text-primary text-glow">Build</span>
+                        <span className="em-serif text-primary text-glow">Build</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="mt-8 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
+                        className="mt-8 text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed"
                     >
-                        AI-powered software, intelligent agents, full-stack applications, and product design — delivered by one unified team.
+                        AI software, smart assistants, web and mobile apps, and product design, all from one team that ships.
                     </motion.p>
                 </div>
             </section>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
                             <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
                             {/* Big faint index */}
-                            <div className="absolute top-6 right-8 font-mono text-6xl md:text-7xl font-bold text-white/[0.03] group-hover:text-primary/10 transition-colors select-none">
+                            <div className="absolute top-6 right-8 font-mono text-6xl md:text-7xl font-bold text-foreground/[0.03] group-hover:text-primary/10 transition-colors select-none">
                                 0{index + 1}
                             </div>
 
@@ -146,11 +146,11 @@ export default function ServicesPage() {
                                         {service.subtitle}
                                     </div>
 
-                                    <h2 className="display text-2xl md:text-3xl lg:text-4xl text-white mb-4">
+                                    <h2 className="display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">
                                         {service.title}
                                     </h2>
 
-                                    <p className="text-slate-400 leading-relaxed mb-6">
+                                    <p className="text-muted-foreground leading-relaxed mb-6">
                                         {service.description}
                                     </p>
 
@@ -168,9 +168,9 @@ export default function ServicesPage() {
                                     <div className="rule mb-6 md:hidden" />
                                     <ul className="space-y-3">
                                         {service.features.map((feature, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
+                                            <li key={i} className="flex items-start gap-3 text-sm text-foreground/80">
                                                 <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-                                                <span className="leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors">
+                                                <span className="leading-relaxed text-muted-foreground group-hover:text-foreground/80 transition-colors">
                                                     {feature}
                                                 </span>
                                             </li>
@@ -186,7 +186,7 @@ export default function ServicesPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 md:py-32 relative overflow-hidden border-t border-white/5 bg-[#090C13]">
+            <section className="py-24 md:py-32 relative overflow-hidden border-t border-foreground/5 bg-muted">
                 <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
                 <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
 
@@ -199,9 +199,9 @@ export default function ServicesPage() {
                     >
                         <h2 className="display text-4xl md:text-5xl lg:text-6xl mb-6">
                             Ready to build{" "}
-                            <span className="text-primary">something great?</span>
+                            <span className="em-serif text-primary">something great?</span>
                         </h2>
-                        <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+                        <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
                             Tell us about your project. We&apos;ll assemble the right team and start building within 48 hours.
                         </p>
                         <Link

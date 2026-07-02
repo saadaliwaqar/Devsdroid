@@ -15,7 +15,7 @@ const clients = [
 
 export const TrustedBy = () => {
     return (
-        <section className="py-14 border-y border-white/5 relative overflow-hidden bg-[#090C13]">
+        <section className="py-14 border-y border-foreground/5 relative overflow-hidden bg-muted">
             <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -30,8 +30,8 @@ export const TrustedBy = () => {
 
                 {/* Scrolling marquee */}
                 <div className="relative overflow-hidden">
-                    <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-[#090C13] to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-[#090C13] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-muted to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-muted to-transparent z-10 pointer-events-none" />
 
                     <div className="flex animate-marquee w-max">
                         {[...clients, ...clients].map((client, i) => (
@@ -39,7 +39,7 @@ export const TrustedBy = () => {
                                 key={i}
                                 className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center"
                             >
-                                <span className="text-xl md:text-2xl font-bold text-slate-600 hover:text-slate-200 transition-colors duration-300 whitespace-nowrap tracking-tight">
+                                <span className="text-xl md:text-2xl font-bold text-muted-foreground/60 hover:text-foreground transition-colors duration-300 whitespace-nowrap tracking-tight">
                                     {client}
                                 </span>
                             </div>
