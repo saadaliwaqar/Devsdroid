@@ -1,3 +1,15 @@
+export const SITE = {
+    name: "DevsDroid",
+    url: "https://devsdroid.com",
+    // Plain, benefit-led description used as the default meta description + OG.
+    description:
+        "DevsDroid builds software that grows your business: web and mobile apps, AI assistants, and automation. One expert team, 5.0-star rated on Fiverr.",
+    ogImage: "/og-image.png",
+    twitter: "@devsdroid",
+    // External profiles for structured data (sameAs).
+    sameAs: ["https://www.fiverr.com/sellers/saadaliwaqar"],
+};
+
 export const NAVBAR_CTA = "Start_Project";
 
 export const NAV_LINKS = [

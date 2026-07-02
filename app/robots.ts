@@ -1,12 +1,14 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { SITE } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/'],
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/", "/admin", "/studio"],
     },
-    sitemap: 'https://devsdroid.com/sitemap.xml',
+    sitemap: `${SITE.url}/sitemap.xml`,
+    host: SITE.url,
   };
 }

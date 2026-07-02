@@ -1,13 +1,19 @@
 import { Metadata } from "next";
+import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About Us | DevsDroid",
-  description: "Learn about DevsDroid, our engineering excellence, AI-first mindset, and the unified team model driving our successful software deliveries worldwide.",
-  keywords: ["about DevsDroid", "software agency", "AI engineers", "developer team"],
+  title: "About Us",
+  description:
+    "Meet DevsDroid: one expert team building web and mobile apps, AI assistants, and automation for businesses worldwide. Rated 5.0 on Fiverr.",
+  alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Us | DevsDroid",
-    description: "Learn about DevsDroid, our engineering excellence, AI-first mindset, and the unified team model driving our successful software deliveries worldwide.",
+    title: "About DevsDroid",
+    description:
+      "One expert team building web and mobile apps, AI assistants, and automation for businesses worldwide.",
+    url: `${SITE.url}/about`,
+    siteName: SITE.name,
     type: "website",
+    images: [{ url: SITE.ogImage, width: 1200, height: 630 }],
   },
 };
 

@@ -10,20 +10,6 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FoundersNote } from "@/components/FoundersNote";
 import { ContactTerminal } from "@/components/ContactTerminal";
 import { Footer } from "@/components/Footer";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "DevsDroid | Elite AI & Software Development Agency",
-  description: "DevsDroid is a premium software development agency specializing in AI agents, generative AI, full-stack applications, and enterprise workflow automation.",
-  keywords: ["DevsDroid", "AI agency", "software development", "AI agents", "automation", "LangGraph", "CrewAI", "Next.js", "full-stack development"],
-  openGraph: {
-    title: "DevsDroid | Elite AI & Software Development Agency",
-    description: "DevsDroid is a premium software development agency specializing in AI agents, generative AI, full-stack applications, and enterprise workflow automation.",
-    type: "website",
-    url: "https://devsdroid.com",
-    siteName: "DevsDroid",
-  },
-};
 
 export default function Home() {
   return (
