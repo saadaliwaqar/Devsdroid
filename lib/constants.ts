@@ -47,7 +47,7 @@ export const FOOTER_INFO = {
         "86, 90 Paul St, London EC2A 4NE, UK",
     ],
     contact: {
-        email: "hello@devsdroid.com",
+        email: "info@devsdroid.com",
         phone: "+92 3044271105",
     },
     copyright: "2026 - DevsDroid",
