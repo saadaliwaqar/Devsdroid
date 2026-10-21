@@ -48,7 +48,7 @@ export const FOOTER_INFO = {
     ],
     contact: {
         email: "hello@devsdroid.com",
-        phone: "+92 3154 521 099",
+        phone: "+92 3044271105",
     },
     copyright: "2026 - DevsDroid",
 };
