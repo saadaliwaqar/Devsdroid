@@ -44,7 +44,6 @@ export const STATS = [
 export const FOOTER_INFO = {
     locations: [
         "College, 114-A Gul E Daman Society, Lahore, Pakistan",
-        "86, 90 Paul St, London EC2A 4NE, UK",
     ],
     contact: {
         email: "info@devsdroid.com",

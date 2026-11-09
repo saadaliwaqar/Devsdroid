@@ -125,7 +125,7 @@ export default function ContactPage() {
                         {
                             icon: MapPin,
                             title: "Where We Are",
-                            value: "Lahore, PK & London, UK",
+                            value: "Lahore, Pakistan",
                             href: null,
                         },
                     ].map((info, i) => (

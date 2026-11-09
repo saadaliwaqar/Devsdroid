@@ -22,21 +22,12 @@ export function StructuredData() {
             "AI Assistants",
             "Business Automation",
         ],
-        address: [
-            {
-                "@type": "PostalAddress",
-                streetAddress: "114-A Gul E Daman Society, College Road",
-                addressLocality: "Lahore",
-                addressCountry: "PK",
-            },
-            {
-                "@type": "PostalAddress",
-                streetAddress: "86, 90 Paul St",
-                addressLocality: "London",
-                postalCode: "EC2A 4NE",
-                addressCountry: "GB",
-            },
-        ],
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "114-A Gul E Daman Society, College Road",
+            addressLocality: "Lahore",
+            addressCountry: "PK",
+        },
         aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5.0",
